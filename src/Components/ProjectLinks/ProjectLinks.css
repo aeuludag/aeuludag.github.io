@@ -1,0 +1,30 @@
+.project-link-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    backdrop-filter: blur(0.5rem);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.project-image {
+    aspect-ratio: 1;
+    width: 4rem;
+    margin-right: 1rem;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    color: #ffdd00;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 1rem;
+}
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.project-description {
+    width: max-content;
+    font-style: italic;
+}

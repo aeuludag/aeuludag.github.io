@@ -1,0 +1,28 @@
+@font-face {
+  src: url("../../assets/Fonts/Poppins-Regular.ttf");
+  font-family: "Poppins";
+}
+
+html {
+  background-color: rgb(56, 6, 43);
+  background-image: url("../../assets/bgsparkles.png");
+  animation: scroll 20s linear infinite;
+  font-family: "Poppins";
+  color: white;
+}
+
+.title {
+  text-shadow: 0px 0px 2rem black;
+  text-align: center;
+}
+
+@keyframes scroll {
+  from {
+    /* background-color: #fff; */
+    background-position: -1920px -1080px;
+  }
+  to {
+    /* background: #000; */
+    background-position: 0px 0px;
+  }
+}
