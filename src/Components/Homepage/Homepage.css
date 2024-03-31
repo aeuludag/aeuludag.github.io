@@ -1,0 +1,82 @@
+:root {
+    --blob-size: 130;
+}
+
+.homepage-title {
+    text-align: center;
+    font-size: 4rem;
+    color: rgb(255, 251, 231);
+    margin: 5vw 20vw;
+    /* margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 5vw; */
+    text-shadow: 0rem 0rem 1rem black;
+}
+
+.magic-text {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+    text-shadow: none;
+    background: linear-gradient(45deg, rgba(255, 221, 0, 1) 0%, rgb(255, 244, 172) 20%, rgba(203, 179, 28, 1) 50%, rgba(255, 244, 172) 80%, rgba(255, 221, 0, 1) 100%);
+    /* background: linear-gradient(45deg, rgb(255, 0, 0) 0%, rgb(0, 162, 255) 50%, rgb(255, 0, 0) 100%); */
+    color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    animation: gradient-scroll 5s linear infinite;
+}
+
+.homepage-sparkle {
+    position: absolute;
+    aspect-ratio: 1;
+    fill: white;
+    animation: sparkling 0.5s linear infinite;
+}
+
+.sparkle-1 {
+    width: 2.25rem;
+    height: 2.25rem;
+    top: 0.25rem;
+    left: -1.75rem;
+    animation-delay: 0ms;
+}
+
+.sparkle-2 {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: 2.25rem;
+    left: -1.75rem;
+    animation-delay: -125ms;
+}
+
+.sparkle-3 {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: 0rem;
+    left: 0.25rem;
+    animation-delay: -250ms;
+}
+
+@keyframes sparkling {
+    from {
+        scale: 1;
+    }
+
+    50% {
+        scale: 0.9;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes gradient-scroll {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}

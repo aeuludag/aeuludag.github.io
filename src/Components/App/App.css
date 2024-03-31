@@ -3,17 +3,50 @@
   font-family: "Poppins";
 }
 
+:root {
+  --yellow: #ffdd00;
+  --purple: rgb(56, 6, 43);
+}
+
+* {
+  margin: 0px;
+}
+
 html {
-  background-color: rgb(56, 6, 43);
-  background-image: url("../../assets/bgsparkles.png");
+  background-color: var(--purple);
+  /* background-image: url("../../assets/bgsparkles.png"); */
   animation: scroll 20s linear infinite;
   font-family: "Poppins";
   color: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .title {
   text-shadow: 0px 0px 2rem black;
   text-align: center;
+}
+
+.blob {
+  position: absolute;
+  aspect-ratio: 1;
+  width: calc(var(--blob-size) * 1vw);
+  height: calc(var(--blob-size) * 1vw);
+  top: calc(var(--blob-size) * -0.8vw);
+  left: calc(50vw - (var(--blob-size) * 0.5vw));
+  opacity: 0.2;
+  animation: rotate 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
 }
 
 @keyframes scroll {

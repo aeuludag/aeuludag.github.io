@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import LogicImage from "../../assets/Icons/logic.png";
 import "./ProjectLinks.css"
 
 function ProjectLinks() {
@@ -25,7 +24,7 @@ function ProjectLinks() {
 function ProjectLink(props) {
     return <div className="project-link-container">
         <Link className={`project-link link-to-${props.route}`} to={props.route}>
-            <img className="project-image" src={LogicImage}></img>
+            <img className="project-image" src={`/ProjectIcons/${props.route}.png`}></img>
             {props.projectName}
         </Link>
         <p className={`project-description desc-to-${props.route}`}>{props.description}</p>

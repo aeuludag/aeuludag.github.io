@@ -15,7 +15,7 @@
 .project-link {
     display: flex;
     align-items: center;
-    color: #ffdd00;
+    color: var(--yellow);
     text-decoration: none;
     font-size: 2rem;
     margin: 1rem;
