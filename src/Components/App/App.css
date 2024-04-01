@@ -13,13 +13,15 @@
 }
 
 html {
-  background-color: var(--purple);
-  /* background-image: url("../../assets/bgsparkles.png"); */
-  animation: scroll 20s linear infinite;
+  background: radial-gradient(circle at top,
+  rgba(56,6,43,1) 11%, rgba(108,15,84,1) 31%, rgba(120,13,92,1) 48%, rgba(107,10,82,1) 71%, rgba(56,6,43,1) 90%
+  );
+  background-position: center center;
+  width: 100vw;
+  height: 100vh;
+  animation: grow-and-shrink 10s ease-in-out infinite alternate;
   font-family: "Poppins";
   color: white;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .title {
@@ -27,35 +29,66 @@ html {
   text-align: center;
 }
 
-.blob {
+.background-content {
   position: absolute;
-  aspect-ratio: 1;
-  width: calc(var(--blob-size) * 1vw);
-  height: calc(var(--blob-size) * 1vw);
-  top: calc(var(--blob-size) * -0.8vw);
-  left: calc(50vw - (var(--blob-size) * 0.5vw));
-  opacity: 0.2;
-  animation: rotate 20s linear infinite;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   z-index: -1;
 }
 
-@keyframes rotate {
-    from {
-        rotate: 0deg;
-    }
-
-    to {
-        rotate: 360deg;
-    }
+.background-blob {
+  position: absolute;
+  width: 100vw;
+  bottom: 70vh;
+  opacity: 0.1;
+  filter: blur(0.25rem);
+  animation: rotate 20s linear infinite;
 }
 
-@keyframes scroll {
+.background-sparkle {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  fill: white;
+}
+
+.background-sparkle-1 {
+  width: 5rem;
+  height: 5rem;
+  bottom: 2.5rem;
+  left: 2.5rem;
+}
+
+.background-sparkle-2 {
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 2rem;
+  left: 7.5rem;
+}
+
+.background-sparkle-3 {
+  width: 2rem;
+  height: 2rem;
+  bottom: 6rem;
+  left: 7.75rem;
+}
+
+@keyframes rotate {
   from {
-    /* background-color: #fff; */
-    background-position: -1920px -1080px;
+    transform: scale(2, 1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(2, 1) rotate(360deg);
+  }
+}
+
+@keyframes grow-and-shrink {
+  from {
+    background-size: 100%;
   }
   to {
-    /* background: #000; */
-    background-position: 0px 0px;
+    background-size: 200%;
   }
 }

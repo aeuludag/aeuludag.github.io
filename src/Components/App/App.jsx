@@ -4,12 +4,18 @@ import { Route, Routes } from 'react-router-dom'
 import Homepage from '../Homepage/Homepage'
 import Navbar from '../Navbar/Navbar'
 import './App.css'
+import Sparkles from "../Sparkles/Sparkles"
 
 function App() {
 
   return (
     <>
-      <img className="blob" src={Blob}></img>
+      <div className="background-content">
+        <img className="background-blob" src={Blob}></img>
+        <div className="background-sparkles">
+          {/* <Sparkles sparkleCount={3} sparkleClass="background-sparkle" /> */}
+        </div> 
+      </div>
       <Navbar />
       <Routes>
         <Route path='' element={<Homepage />} />
