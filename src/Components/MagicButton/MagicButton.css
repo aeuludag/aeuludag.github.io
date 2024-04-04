@@ -1,0 +1,44 @@
+.magic-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: "Poppins";
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: var(--purple);
+    background-clip: text;
+    background: var(--yellow-gradient);
+    background-color: var(--purple);
+    background-size: 200%;
+    border-width: 0;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    animation: gradient-scroll 5s linear infinite;
+}
+
+.magic-button-bg {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* top: -0.1rem;
+    left: -0.1rem;
+    padding: 0.1rem; */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    border-radius: 2rem;
+    background-color: var(--purple);
+    transition: all 0.5s; 
+}
+
+.magic-button:hover {
+    color: var(--yellow);
+}
+
+.magic-button:hover .magic-button-bg {
+    opacity: 1;
+}

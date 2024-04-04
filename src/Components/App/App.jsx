@@ -5,6 +5,7 @@ import Homepage from '../Homepage/Homepage'
 import Navbar from '../Navbar/Navbar'
 import './App.css'
 import Sparkles from "../Sparkles/Sparkles"
+import Gallery from "../Gallery/Gallery"
 
 function App() {
 
@@ -12,14 +13,16 @@ function App() {
     <>
       <div className="background-content">
         <img className="background-blob" src={Blob}></img>
-        <div className="background-sparkles">
-          {/* <Sparkles sparkleCount={3} sparkleClass="background-sparkle" /> */}
-        </div> 
+        {/* <div className="background-sparkles">
+          <Sparkles sparkleCount={3} sparkleClass="background-sparkle" />
+        </div>  */}
       </div>
       <Navbar />
+      <br />
       <Routes>
-        <Route path='' element={<Homepage />} />
-        <Route path='/projects' element={<ProjectLinks />} />
+        <Route path="" element={<Homepage />} />
+        <Route path="/projects" element={<ProjectLinks />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </>
   )

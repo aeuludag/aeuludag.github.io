@@ -1,16 +1,19 @@
 .navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     max-width: 100vw;
     height: 5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
     /* background-color: rgba(255, 255, 255, 0.2); */
     /* backdrop-filter: blur(0.5rem); */
 }
 
 .navbar-logo-and-title {
+    margin-left: 2rem;
     display: flex;
     align-items: center;
 }
@@ -23,15 +26,20 @@
     border-radius: 100%;
 }
 
+.navbar-title {
+    text-shadow: 0 0 1rem black;
+}
+
 .navbar-links {
+    margin-right: 2rem;
     display: flex;
     align-items: center;
     justify-content: end;
+    gap: 2rem;
 }
 
 .navbar-link {
     padding: 0.5rem;
-    margin-left: 2rem;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 1rem;
     color: var(--purple);

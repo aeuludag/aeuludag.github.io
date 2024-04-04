@@ -1,0 +1,42 @@
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+    overflow-x: hidden;
+    gap: 2rem;
+}
+
+.gallery-design {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    overflow: hidden;
+}
+
+.design-details {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    background-color: var(--purple);
+    transition: all 0.5s;
+}
+
+.design-title, .design-description{
+    margin: 0.5rem 1rem;
+}
+
+.design-image {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.gallery-design:hover .design-image {
+    filter: blur(0.5rem);
+}
+
+.gallery-design:hover .design-details {
+    opacity: 1;
+}
