@@ -1,7 +1,7 @@
 .homepage-title {
     text-align: center;
     font-size: 4rem;
-    color: rgb(255, 251, 231);
+    color: var(--yellow-accent);
     padding: 0rem 20vw;
     padding-bottom: 5rem;
     /* margin-left: 20vw;

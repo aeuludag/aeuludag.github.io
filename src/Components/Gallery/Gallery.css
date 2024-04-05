@@ -1,4 +1,4 @@
-.gallery {
+.gallery-items {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,12 +12,13 @@
     position: relative;
     width: 25rem;
     height: 25rem;
+    cursor: pointer;
     overflow: hidden;
 }
 
 .design-details {
     position: absolute;
-    bottom: 0;
+    bottom: -100%;
     opacity: 0;
     width: 100%;
     background-color: var(--purple);
@@ -25,7 +26,7 @@
 }
 
 .design-title, .design-description{
-    margin: 0.5rem 1rem;
+    margin: 1rem;
 }
 
 .design-image {
@@ -38,5 +39,6 @@
 }
 
 .gallery-design:hover .design-details {
+    bottom: 0;
     opacity: 1;
 }

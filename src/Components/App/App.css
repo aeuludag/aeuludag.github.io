@@ -5,6 +5,7 @@
 
 :root {
   --yellow: #ffdd00;
+  --yellow-accent: rgb(255, 251, 231);
   --purple: rgb(56, 6, 43);
   --yellow-gradient: linear-gradient(90deg, rgba(255, 221, 0, 1) 0%, rgb(255, 244, 172) 20%, rgba(203, 179, 28, 1) 50%, rgba(255, 244, 172) 80%, rgba(255, 221, 0, 1) 100%);
 }
@@ -26,10 +27,21 @@ html {
   color: white;
 }
 
-.title {
-  text-shadow: 0px 0px 2rem black;
+.route-title {
   text-align: center;
+  font-size: 4rem;
+  color: var(--yellow-accent);
+  padding: 0rem 20vw;
+  text-shadow: 0rem 0rem 1rem black;
+  overflow-x: hidden;
 }
+
+.route-description {
+  text-align: center;
+  padding: 0rem 20vw;
+  margin-bottom: 2rem;
+}
+
 
 .background-content {
   position: absolute;

@@ -4,12 +4,9 @@ import "./ProjectLinks.css"
 
 function ProjectLinks() {
 
-    // const projects = [
-    //     { projectName: "Logic", route: "logic", description: "A tool to calculate boolean logic." },
-    //     { projectName: "Unlogic", route: "unlogic", description: "A tool not to calculate boolean logic." },
-    // ]
-
     return <>
+        <h1 className="route-title">Projects</h1>
+        <p className="route-description">Here are my web available projects.</p>
         <div>
             <ul>
             {projects.map(({ projectName, route, description }) => {
