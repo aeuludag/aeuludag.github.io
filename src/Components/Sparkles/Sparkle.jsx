@@ -1,6 +1,6 @@
 export function Sparkle(props) {
     return (
-    <svg className={props.className}
+    <svg {...props}
         width="1920"
         height="1920"
         viewBox="0 0 508 508"
