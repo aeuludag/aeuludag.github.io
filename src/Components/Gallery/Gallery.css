@@ -13,15 +13,14 @@
     width: 25rem;
     height: 25rem;
     border-radius: 1%;
-    cursor: pointer;
     overflow: hidden;
 }
 
 .design-details {
     position: absolute;
     bottom: -100%;
-    opacity: 0;
     width: 100%;
+    opacity: 0;
     background-color: var(--purple);
     transition: all 0.5s;
 }
@@ -35,83 +34,15 @@
     transition: all 0.5s;
 }
 
-.zoomed-design-wrapper {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100dvh;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(0.5rem);
-}
-
-.zoomed-design {
-    position: relative;
-    display: grid;
-    width: 40%;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    gap: 1rem;
-    /* outline: 0.5rem solid white; */
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.zoomed-image {
-    aspect-ratio: 1;
-    width: 100%;
-    /* outline: 0.5rem solid white; */
-    border-radius: 1% 0% 0% 1%;
-}
-
-.zoomed-details {
-    display: flex;
-    align-content: center;
-    flex-wrap: wrap;
-    height: 100%;
-    border-radius: 0% 1% 1% 0%;
-}
-
-.zoomed-title {
-    text-align: center;
-    width: 100%;
-}
-
-.zoomed-description {
-    width: 100%;
-    text-align: center;
-}
-
-.zoomed-design-buttons {
+.design-buttons {
     position: absolute;
-    top: 0.5rem;
+    top: -100%;
     right: 0.5rem;
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 0.5rem;
-}
-
-.close-button {
-    width: 2rem;
-    height: 2rem;
-    background: none;
-    border: none;
-    border-radius: 10%;
-    padding: 0%;
-    cursor: pointer;
-    background-color: rgb(240, 219, 219);
-    box-shadow: none;
+    opacity: 0;
     transition: all 0.5s;
-}
-
-.close-button img {
-    width: 100%;
-    height: 100%;
 }
 
 .image-link {
@@ -119,17 +50,12 @@
     left: 0;
     top: 0;
     margin: 1%;
-    width: 2rem;
-    height: 2rem;
-    background-color: rgb(198, 226, 202);
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10%;
     box-shadow: none;
     transition: all 0.5s;
-}
-
-.image-link:hover, .close-button:hover {
-    background-color: white;
-    box-shadow: 0 0 1rem 0 black;
 }
 
 .image-link img {
@@ -137,12 +63,22 @@
     height: 100%;
 }
 
+.image-link:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 1rem 0 black;
+}
 
-.gallery-design:hover .design-image {
+.gallery-design:hover > .design-buttons {
+    top: 0.5rem;
+    right: 0.5rem;
+    opacity: 1;
+}
+
+.gallery-design:hover > .design-image {
     filter: blur(0.5rem);
 }
 
-.gallery-design:hover .design-details {
+.gallery-design:hover > .design-details {
     bottom: 0;
     opacity: 1;
 }
