@@ -46,7 +46,7 @@ html {
 .background-content {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   z-index: -1;
 }
@@ -54,7 +54,7 @@ html {
 .background-blob {
   position: absolute;
   width: 100%;
-  bottom: 70vh;
+  bottom: 70dvh;
   opacity: 0.1;
   filter: blur(0.1rem);
   animation: rotate 20s linear infinite;

@@ -12,6 +12,7 @@
     position: relative;
     width: 25rem;
     height: 25rem;
+    border-radius: 1%;
     cursor: pointer;
     overflow: hidden;
 }
@@ -22,6 +23,15 @@
     opacity: 0;
     width: 100%;
     background-color: var(--purple);
+    transition: all 0.5s;
+}
+
+.design-title, .design-description{
+    margin: 1rem;
+}
+
+.design-image {
+    width: 100%;
     transition: all 0.5s;
 }
 
@@ -36,6 +46,7 @@
     width: 100vw;
     height: 100dvh;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.5rem);
 }
 
 .zoomed-design {
@@ -47,17 +58,15 @@
     justify-content: center;
     align-content: center;
     gap: 1rem;
-    outline: 0.5rem solid white;
-    border-radius: 1%;
-    backdrop-filter: blur(0.5rem);
+    /* outline: 0.5rem solid white; */
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .zoomed-image {
     aspect-ratio: 1;
     width: 100%;
-    outline: 0.5rem solid white;
-    border-radius: 1%;
+    /* outline: 0.5rem solid white; */
+    border-radius: 1% 0% 0% 1%;
 }
 
 .zoomed-details {
@@ -65,6 +74,7 @@
     align-content: center;
     flex-wrap: wrap;
     height: 100%;
+    border-radius: 0% 1% 1% 0%;
 }
 
 .zoomed-title {
@@ -77,33 +87,56 @@
     text-align: center;
 }
 
-.close-button {
+.zoomed-design-buttons {
     position: absolute;
-    width: 2vw;
-    height: 2vw;
-    right: 0;
-    top: 0;
-    background-color: white;
-    border: none;
-    border-radius: 0;
-    padding: 1%;
-    cursor: pointer;
-    /* right: -100%;
-    top: -100%; */
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
+.close-button {
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    border: none;
+    border-radius: 10%;
+    padding: 0%;
+    cursor: pointer;
+    background-color: rgb(240, 219, 219);
+    box-shadow: none;
+    transition: all 0.5s;
+}
+
 .close-button img {
     width: 100%;
     height: 100%;
 }
 
-.design-title, .design-description{
-    margin: 1rem;
-}
-
-.design-image {
-    width: 100%;
+.image-link {
+    aspect-ratio: 1;
+    left: 0;
+    top: 0;
+    margin: 1%;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(198, 226, 202);
+    border-radius: 10%;
+    box-shadow: none;
     transition: all 0.5s;
 }
+
+.image-link:hover, .close-button:hover {
+    background-color: white;
+    box-shadow: 0 0 1rem 0 black;
+}
+
+.image-link img {
+    width: 100%;
+    height: 100%;
+}
+
 
 .gallery-design:hover .design-image {
     filter: blur(0.5rem);

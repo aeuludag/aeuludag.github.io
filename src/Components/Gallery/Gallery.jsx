@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import X from "../../assets/x.svg"
+import closeImage from "../../assets/close.svg"
+import openInNewImage from "../../assets/open_in_new.svg"
 import designs from "../../designs"
 import "./Gallery.css"
 import { useState } from "react";
@@ -12,7 +13,7 @@ function Gallery() {
 
     for (let i = 0; i < designs.length; i++) {
         let design = designs[i]
-        let element = <GalleryDesign key={design.id} design={design} set={setCurrentDesign}/>;
+        let element = <GalleryDesign key={design.id} design={design} set={setCurrentDesign} />;
         designElements.push(element);
     }
 
@@ -51,18 +52,21 @@ function ZoomedDesign(props) {
     const description = props.design.description;
 
     return (
-    <div className="zoomed-design-wrapper">
-        <div className="zoomed-design">
-            <button className="close-button" onClick={() => props.set(null)}><img src={X} /></button>
-            <img className="zoomed-image" src={`/designs/${id}.png`} alt={description} />
-            <div className="zoomed-details">
-                <h1 className="zoomed-title">
-                    {title}
-                </h1>
-                <p className="zoomed-description">{description}</p>
+        <div className="zoomed-design-wrapper">
+            <div className="zoomed-design">
+                <div className="zoomed-design-buttons">
+                    <a className="image-link" target="blank" href={`/designs/${id}.png`}><img src={openInNewImage} /></a>
+                    <button className="close-button" onClick={() => props.set(null)}><img src={closeImage} /></button>
+                </div>
+                <img className="zoomed-image" src={`/designs/${id}.png`} alt={description} />
+                <div className="zoomed-details">
+                    <h1 className="zoomed-title">
+                        {title}
+                    </h1>
+                    <p className="zoomed-description">{description}</p>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

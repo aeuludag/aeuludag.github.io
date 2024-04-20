@@ -45,6 +45,7 @@
     color: var(--purple);
     text-decoration: none;
     /* backdrop-filter: blur(0.5rem); */
+    box-shadow: 0 0 1rem 0 black;
     transition: all 0.5s;
 }
 
