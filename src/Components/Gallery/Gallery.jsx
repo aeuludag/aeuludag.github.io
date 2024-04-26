@@ -13,13 +13,13 @@ function Gallery() {
     }
 
     return (
-        <>
+        <div className="gallery">
             <h1 className="route-title">Design Gallery</h1>
             <p className="route-description">Here are my designs, mostly made in Inkscape tool.</p>
             <div className="gallery-items">
                 {designElements}
             </div>
-        </>)
+        </div>)
 }
 
 function GalleryDesign(props) {

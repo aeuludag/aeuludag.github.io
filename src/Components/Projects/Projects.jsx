@@ -1,6 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import LogicCalculator from "../LogicCalculator/LogicCalculator"
 import projects from "../../projects"
-import "./ProjectLinks.css"
+import "./Projects.css"
+
+function Projects() {
+    return <div className="projects">
+        <Routes>
+            <Route path="" element={<ProjectLinks/>}/>
+            <Route path="logic" element={<LogicCalculator />} />
+        </Routes>
+    </div>
+}
 
 function ProjectLinks() {
 
@@ -9,11 +19,11 @@ function ProjectLinks() {
         <p className="route-description">Here are my web available projects.</p>
         <div>
             <ul>
-            {projects.map(({ projectName, route, description }) => {
-                return <li key={route}>
-                        <ProjectLink projectName={projectName} route={route} description={description}></ProjectLink>
+                {projects.map(({ projectName, route, description }) => {
+                    return <li key={route}>
+                        <ProjectLink projectName={projectName} route={route} description={description} />
                     </li>
-            })}
+                })}
             </ul>
         </div>
     </>
@@ -29,4 +39,4 @@ function ProjectLink(props) {
     </div>
 }
 
-export default ProjectLinks;
+export default Projects;

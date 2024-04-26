@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
     return (
-        <>
+        <div className="homepage">
             <h1 className="homepage-title">
                 I'm Ahmet Emir and I love <br />
                 <MagicText>
@@ -23,7 +23,7 @@ function Homepage() {
                     <MagicButton text="Designs" className="homepage-magic-button projects-button" />
                 </Link>
             </div>
-        </>
+        </div>
     )
 }
 

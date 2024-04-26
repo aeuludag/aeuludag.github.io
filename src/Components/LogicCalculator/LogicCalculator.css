@@ -1,0 +1,42 @@
+.logic-container {
+    width: 95%;
+    height: 95%;
+    /* padding: 1%; */
+    margin: 1rem;
+    background-color: rgba(1, 33, 139, 0.5);
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem;
+}
+
+.project-statusbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.075);
+    padding: 0.1rem;
+    border-radius: 1rem;
+}
+
+.statusbar-details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.statusbar-image {
+    width: 5rem;
+    height: 5rem;
+}
+
+.statusbar-close {
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 0.3rem;
+    margin: 1rem;
+}
+.statusbar-close img {
+    width: 3rem;
+    height: 3rem;
+}

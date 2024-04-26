@@ -1,11 +1,10 @@
-import Blob from "../../assets/blob.svg"
-import ProjectLinks from '../ProjectLinks/ProjectLinks'
 import { Route, Routes } from 'react-router-dom'
+import Blob from "../../assets/blob.svg"
+import Projects from '../Projects/Projects'
 import Homepage from '../Homepage/Homepage'
 import Navbar from '../Navbar/Navbar'
-import './App.css'
-import Sparkles from "../Sparkles/Sparkles"
 import Gallery from "../Gallery/Gallery"
+import './App.css'
 
 function App() {
 
@@ -17,13 +16,16 @@ function App() {
           <Sparkles sparkleCount={3} sparkleClass="background-sparkle" />
         </div>  */}
       </div>
-      <Navbar />
-      <br />
-      <Routes>
-        <Route path="" element={<Homepage />} />
-        <Route path="/projects" element={<ProjectLinks />} />
-        <Route path="/gallery" element={<Gallery />} />
-      </Routes>
+      <div className="app-wrapper">
+        <Navbar />
+        <div className="app-routes">
+          <Routes>
+            <Route path="" element={<Homepage />} />
+            <Route path="/projects/*" element={<Projects />} />
+            <Route path="/gallery" element={<Gallery />} />
+          </Routes>
+        </div>
+      </div>
     </>
   )
 }
