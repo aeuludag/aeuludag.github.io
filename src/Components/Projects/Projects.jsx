@@ -1,5 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
-import LogicCalculator from "../LogicCalculator/LogicCalculator"
+import LogicCalculator from "../ProjectComponents/LogicCalculator/LogicCalculator"
 import projects from "../../projects"
 import "./Projects.css"
 

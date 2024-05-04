@@ -37,6 +37,7 @@ html {
 
 .app-routes {
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -72,7 +73,6 @@ html {
   width: 100%;
   bottom: 70dvh;
   opacity: 0.1;
-  filter: blur(0.1rem);
   animation: rotate 20s linear infinite;
 }
 
