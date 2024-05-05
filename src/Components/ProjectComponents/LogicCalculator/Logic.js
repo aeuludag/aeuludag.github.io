@@ -1,5 +1,3 @@
-// @ts-check
-
 export const logicSymbols = {
   not: "!",
   and: "&",
@@ -19,54 +17,25 @@ const logicOperators = [
 let prefixUnary = false;
 
 /**
- *
- * @param {boolean} p
- * @returns {boolean}
+ * @type {Map<string, boolean>}
  */
+export let variableMap = new Map();
+
 function not(p) {
   return !p;
 }
-
-/**
- *
- * @param {boolean} p
- * @param {boolean} q
- * @returns {boolean}
- */
 function and(p, q) {
   return p && q;
 }
-
-/**
- *
- * @param {boolean} p
- * @param {boolean} q
- * @returns {boolean}
- */
 function or(p, q) {
   return p || q;
 }
-
-/**
- *
- * @param {boolean} p
- * @param {boolean} q
- * @returns {boolean}
- */
 function xor(p, q) {
   return p != q;
 }
-
-/**
- *
- * @param {boolean} p
- * @param {boolean} q
- * @returns {boolean}
- */
 function xnor(p, q) {
   return p == q;
 }
-
 /**
  *
  * @param {boolean} bool
@@ -75,7 +44,6 @@ function xnor(p, q) {
 export function boolToString(bool) {
   return bool ? "1" : "0";
 }
-
 /**
  *
  * @param {string} string
@@ -84,7 +52,6 @@ export function boolToString(bool) {
 function stringToBool(string) {
   return string == "1" ? true : false;
 }
-
 /**
  *
  * @param {function} unaryFn
@@ -110,7 +77,6 @@ function generateUnaryArray(unaryFn, symbol, prefix) {
   }
   return finalArray;
 }
-
 /**
  *
  * @param {function} binaryFn
@@ -167,7 +133,7 @@ function generateLogicArrayFromInput(input) {
   return logicArray;
 }
 
-function sanitize(input) {
+export function sanitize(input) {
   input = input.trim();
   input = input.replaceAll(" ", "");
   input = input.replaceAll("\t", "");
@@ -186,7 +152,7 @@ function calculatePureLogic(input) {
   let logicArray = generateLogicArrayFromInput(input);
   let prevStep = "";
   let currentStep = input;
-  
+
   do {
     prevStep = currentStep;
     currentStep = logicStep(prevStep, logicArray);
@@ -202,13 +168,13 @@ function calculatePureLogic(input) {
 /**
  *
  * @param {*} input
- * @param {{name : string, value : boolean}[]} variables
+ * @param {[string, boolean][]} variables
  * @returns {string}
  */
 function replaceVariables(input, variables) {
   for (let i = 0; i < variables.length; i++) {
     let variable = variables[i];
-    input = input.replaceAll(variable.name, boolToString(variable.value));
+    input = input.replaceAll(variable[0], boolToString(variable[1]));
   }
   return input;
 }
@@ -216,7 +182,7 @@ function replaceVariables(input, variables) {
 /**
  * Calculates logic with given variables.
  * @param {string} input
- * @param {{name : string, value : boolean}[]} variables
+ * @param {[string, boolean][]} variables
  * @returns {boolean?}
  */
 function calculateLogicWithVariables(input, variables) {
@@ -242,7 +208,7 @@ function logicStep(input, logicArray) {
  * @param {string} input
  * @returns {string[]}
  */
-function getNonTokenCharacters(input) {
+export function getNonTokenCharacters(input) {
   let characters = new Set();
   const tokenCharacters = [
     "0",
@@ -261,12 +227,23 @@ function getNonTokenCharacters(input) {
       characters.add(char);
     }
   }
+
   return Array.from(characters);
+}
+
+/**
+ * 
+ * @param {string} name 
+ * @param {boolean} value 
+ */
+export function setVariable(name, value) {
+  variableMap.set(name, value);
 }
 
 export function Calculate(input) {
   input = sanitize(input);
   let variableNames = getNonTokenCharacters(input);
+  input = replaceVariables(input, Array.from(variableMap))
   return calculatePureLogic(input);
   // TODO: Choose a method based on input? Find a way to get all the variables?
 }
