@@ -25,6 +25,7 @@ html {
   animation: grow-and-shrink 10s ease-in-out infinite alternate;
   font-family: "Poppins";
   color: white;
+  font-size: clamp(0.5rem, 2vw, 1rem);
 }
 
 .app-wrapper {
