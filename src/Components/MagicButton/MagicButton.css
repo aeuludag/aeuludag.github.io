@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    font-family: "Poppins";
-    font-size: 2.5rem;
+    font-family: "Anta";
+    font-size: 1.5rem;
     text-decoration: none;
     color: var(--purple);
     background-clip: text;
@@ -12,7 +12,7 @@
     background-color: var(--purple);
     background-size: 200%;
     border-width: 0;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     cursor: pointer;
     transition: all 0.5s;
     animation: gradient-scroll 5s linear infinite;
@@ -30,7 +30,7 @@
     justify-content: center;
     text-decoration: none;
     opacity: 0;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     background-color: var(--purple);
     transition: all 0.5s; 
 }

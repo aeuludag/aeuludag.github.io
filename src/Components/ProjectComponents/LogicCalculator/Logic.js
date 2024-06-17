@@ -1,9 +1,10 @@
 export const logicSymbols = {
-  not: "!",
-  and: "&",
-  or: "|",
-  xor: "^",
-  xnor: "=",
+  not: "'",
+  and: "∧",
+  or: "∨",
+  xor: "⊻",
+  xnor: "⇔",
+  ifthen: "⇒",
 };
 
 const logicOperators = [
@@ -12,6 +13,7 @@ const logicOperators = [
   { symbol: logicSymbols.or, fn: or },
   { symbol: logicSymbols.xor, fn: xor },
   { symbol: logicSymbols.xnor, fn: xnor },
+  { symbol: logicSymbols.ifthen, fn: ifthen },
 ];
 
 let prefixUnary = false;
@@ -35,6 +37,9 @@ function xor(p, q) {
 }
 function xnor(p, q) {
   return p == q;
+}
+function ifthen(p, q) {
+  return !p || q;
 }
 /**
  *
@@ -220,6 +225,7 @@ export function getNonTokenCharacters(input) {
     logicSymbols.or,
     logicSymbols.xnor,
     logicSymbols.xor,
+    logicSymbols.ifthen,
   ];
   for (let i = 0; i < input.length; i++) {
     let char = input[i];

@@ -18,25 +18,23 @@ function ProjectLinks() {
         <h1 className="route-title">Projects</h1>
         <p className="route-description">Here are my web available projects.</p>
         <div>
-            <ul>
                 {projects.map(({ projectName, route, description }) => {
-                    return <li key={route}>
+                    return <div className="project-link-container" key={route}>
                         <ProjectLink projectName={projectName} route={route} description={description} />
-                    </li>
+                    </div>
                 })}
-            </ul>
         </div>
     </>
 }
 
 function ProjectLink(props) {
-    return <div className="project-link-container">
+    return <>
         <Link className={`project-link link-to-${props.route}`} to={props.route}>
             <img className="project-image" src={`/projectIcons/${props.route}.png`}></img>
             {props.projectName}
         </Link>
         <p className={`project-description desc-to-${props.route}`}>{props.description}</p>
-    </div>
+    </>
 }
 
 export default Projects;

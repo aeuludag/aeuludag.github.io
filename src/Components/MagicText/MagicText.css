@@ -19,25 +19,23 @@
 }
 
 .magic-text-sparkle:nth-child(1) {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.2rem;
+    height: 1.2rem;
     top: 0.25rem;
-    left: -1.75rem;
+    left: -1rem;
     animation-delay: 0ms;
 }
-
 .magic-text-sparkle:nth-child(2) {
-    width: 1.25rem;
-    height: 1.25rem;
-    top: 2.25rem;
-    left: -1.75rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 1.35rem;
+    left: -1rem;
     animation-delay: -125ms;
 }
-
 .magic-text-sparkle:nth-child(3) {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 0.8rem;
+    height: 0.8rem;
     top: 0rem;
-    left: 0.25rem;
+    left: -0.05rem;
     animation-delay: -250ms;
 }

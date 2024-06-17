@@ -1,6 +1,11 @@
 @font-face {
-  src: url("../../assets/Fonts/Poppins-Regular.ttf");
   font-family: "Poppins";
+  src: url("../../assets/Fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Anta";
+  src: url("../../assets/Fonts/Anta-Regular.ttf");
 }
 
 :root {
@@ -23,9 +28,9 @@ html {
   height: max-content;
   min-height: 100%;
   animation: grow-and-shrink 10s ease-in-out infinite alternate;
-  font-family: "Poppins";
+  font-family: "Anta";
   color: white;
-  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .app-wrapper {
@@ -47,7 +52,7 @@ html {
 
 .route-title {
   text-align: center;
-  font-size: 4rem;
+  font-size: 2rem;
   color: var(--yellow-accent);
   padding: 0rem 20vw;
   text-shadow: 0rem 0rem 1rem black;
@@ -57,7 +62,7 @@ html {
 .route-description {
   text-align: center;
   padding: 0rem 20vw;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 
@@ -78,7 +83,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.5rem;
 }
 
 /* Track */
@@ -88,7 +93,7 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   background-color: var(--yellow);
 }
 
