@@ -1,5 +1,6 @@
-export const logicSymbols = {
-  not: "'",
+export let logicSymbols = {
+  notPostfix: "'",
+  notPrefix: "¬",
   and: "∧",
   or: "∨",
   xor: "⊻",
@@ -7,8 +8,9 @@ export const logicSymbols = {
   ifthen: "⇒",
 };
 
-const logicOperators = [
-  { symbol: logicSymbols.not, fn: not },
+export let logicOperators = [
+  { symbol: logicSymbols.notPostfix, fn: not },
+  { symbol: logicSymbols.notPrefix, fn: not },
   { symbol: logicSymbols.and, fn: and },
   { symbol: logicSymbols.or, fn: or },
   { symbol: logicSymbols.xor, fn: xor },
@@ -17,6 +19,10 @@ const logicOperators = [
 ];
 
 let prefixUnary = false;
+
+export function setPrefixUnary(value) {
+  prefixUnary = value;
+}
 
 /**
  * @type {Map<string, boolean>}
@@ -41,6 +47,9 @@ function xnor(p, q) {
 function ifthen(p, q) {
   return !p || q;
 }
+export function isBitTrue(i, j) {
+  return (i & (1 << j)) != 0;
+}
 /**
  *
  * @param {boolean} bool
@@ -64,18 +73,18 @@ function stringToBool(string) {
  * @param {boolean} prefix
  * @returns {Array}
  */
-function generateUnaryArray(unaryFn, symbol, prefix) {
+function generateUnaryArray(unaryFn, prefix, prefixSymbol, postfixSymbol) {
   let finalArray = [];
   for (let i = 0; i < 2; i++) {
     let p = (i & 0b1) != 0;
     if (prefix) {
       finalArray.push({
-        operation: `${symbol}${boolToString(p)}`,
+        operation: `${prefixSymbol}${boolToString(p)}`,
         value: `${boolToString(unaryFn(p))}`,
       });
     } else {
       finalArray.push({
-        operation: `${boolToString(p)}${symbol}`,
+        operation: `${boolToString(p)}${postfixSymbol}`,
         value: `${boolToString(unaryFn(p))}`,
       });
     }
@@ -117,8 +126,9 @@ function generateLogicArrayFromInput(input) {
   logicArray.push(
     ...generateUnaryArray(
       logicOperators[0].fn,
-      logicOperators[0].symbol,
-      prefixUnary
+      prefixUnary,
+      logicSymbols.notPrefix,
+      logicSymbols.notPostfix
     )
   );
 
@@ -155,6 +165,11 @@ export function sanitize(input) {
 function calculatePureLogic(input) {
   input = sanitize(input);
   let logicArray = generateLogicArrayFromInput(input);
+
+  return calculateFast(input, logicArray);
+}
+
+function calculateFast(input, logicArray) {
   let prevStep = "";
   let currentStep = input;
 
@@ -220,7 +235,8 @@ export function getNonTokenCharacters(input) {
     "1",
     "(",
     ")",
-    logicSymbols.not,
+    logicSymbols.notPostfix,
+    logicSymbols.notPrefix,
     logicSymbols.and,
     logicSymbols.or,
     logicSymbols.xnor,
@@ -247,9 +263,36 @@ export function setVariable(name, value) {
 }
 
 export function Calculate(input) {
+  // console.log("Prefix Unary", prefixUnary);
   input = sanitize(input);
   let variableNames = getNonTokenCharacters(input);
   input = replaceVariables(input, Array.from(variableMap))
   return calculatePureLogic(input);
-  // TODO: Choose a method based on input? Find a way to get all the variables?
+}
+
+/**
+ * 
+ * @param {string} input
+ */
+export function CalculateTruthTable(input) {
+  let tableValues = [];
+  input = sanitize(input);
+  let variableNames = getNonTokenCharacters(input);
+  let variables = [];
+
+  for (let i = 0; i < variableNames.length; i++) {
+    variables.push([variableNames[i], false]);
+  }
+
+  let logicArray = generateLogicArrayFromInput(input);
+
+  for (let i = 0; i < Math.pow(2, variableNames.length); i++) {
+    for (let j = 0; j < variables.length; j++) {
+      variables[variables.length - 1 - j][1] = isBitTrue(i, j);
+    }
+    let replacedInput = replaceVariables(input, variables);
+    // console.log(replacedInput, calculateFast(replacedInput, logicArray));
+    tableValues.push(calculateFast(replacedInput, logicArray));
+  }
+  return tableValues;
 }

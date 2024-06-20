@@ -1,16 +1,22 @@
 :root {
     --logic-default-color: rgba(1, 33, 139, 0.5);
-    --logic-error-color: rgba(23, 1, 32, 0.795);
-    --logic-true-color: rgb(10, 61, 17);
-    --logic-false-color: rgb(61, 10, 35);
+    --logic-error-color: rgba(23, 1, 32, 0.75);
+    --logic-true-color: rgba(10, 61, 17, 0.9);
+    --logic-false-color: rgba(61, 10, 35, 0.9);
+    --logic-true-hover-color: hsla(128, 72%, 28%, 0.9);
+    --logic-false-hover-color: hsla(331, 72%, 28%, 0.9);
 }
 
 .logic-container {
     /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
     min-height: 480px;
     margin: 1rem;
     padding: 1rem;
-    background-color: var(--logic-default-color);
     backdrop-filter: blur(1rem);
     border-radius: 1rem;
     transition: all 1s;
@@ -18,13 +24,28 @@
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
 }
 
+.logic-container.logic-default {
+    background-color: var(--logic-default-color);
+}
+
+.logic-container.logic-error {
+    background-color: var(--logic-error-color);
+}
+
+.logic-container.logic-true {
+    background-color: var(--logic-true-color);
+}
+
+.logic-container.logic-false {
+    background-color: var(--logic-false-color);
+}
+
 .project-statusbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.075);
-    padding: 0.1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
 }
 
 .statusbar-title {
@@ -35,30 +56,31 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 0.1rem;
 }
 
 .statusbar-image {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    width: 2rem;
 }
 
 .statusbar-close {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 0.3rem;
-    margin: 0.1rem;
-    transition: box-shadow 0.5s;
+    transition: all 0.5s;
 }
 
 .statusbar-close:hover {
-    box-shadow: 0 0 1rem 0 black;
+    background-color: white;
 }
 
 .statusbar-close img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .project-content {
@@ -73,6 +95,16 @@
     text-align: start;
     font-size: 1.5rem;
     margin-top: 0.5rem;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.logic-output-calculate-mode-value {
+    height: 2rem;
+}
+
+.logic-output-calculate-mode-table {
+    height: 0;
 }
 
 .logic-input-categories {
@@ -113,8 +145,14 @@
     cursor: pointer;
     transition: all 0.5s;
 }
-.logic-input-buttons > *:hover {
+
+.logic-input-buttons > *:not(:disabled):hover {
     background-color: white;
+}
+
+.logic-input-buttons > *:disabled {
+    opacity: 0.5;
+    cursor: default;
 }
 
 .logic-input-buttons {
@@ -131,10 +169,11 @@
 }
 
 .logic-input-button {
-    aspect-ratio: 1;
+    /* aspect-ratio: 1; */
     flex-grow: 1;
     font-size: 1rem;
-    width: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
     background-color: rgba(255, 255, 255, 0.8);
     /* border-radius: 0.3rem; */
     border-width: 0;
@@ -179,12 +218,93 @@
     transition: all 0.5s;
 }
 
-.variable > label:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+.variable.variable-true > label {
+    background-color: var(--logic-true-color);
+}
+
+.variable.variable-false > label {
+    background-color: var(--logic-false-color);
+}
+
+.variable.variable-true > label:hover {
+    background-color: var(--logic-true-hover-color);
+}
+
+.variable.variable-false > label:hover {
+    background-color: var(--logic-false-hover-color);
 }
 
 .variable > input {
     /* transform: scale(1.5); */
     width: 1.5rem;
     display: none;
+}
+
+.logic-truth-table {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+.logic-truth-table > h2, .variables > h2 {
+    margin-bottom: 0.5rem;
+}
+
+.logic-truth-table-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: white;
+    padding: 2px;
+    border-radius: 0.3rem;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.logic-truth-table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2px;
+}
+
+
+.logic-truth-table-item {
+    flex-grow: 1;
+    width: 50%;
+    text-align: center;
+    align-content: center;
+    min-height: 2rem;
+}
+
+.logic-truth-table-item-name {
+    background-color: var(--logic-error-color);
+}
+
+.logic-truth-table-item-result-name {
+    background-color: var(--logic-error-color);
+}
+
+.logic-truth-table-item-result {
+    flex-grow: 2;
+    width: 100%;
+    margin-left: 2px;
+}
+
+.logic-truth-table-item-false {
+    background-color: var(--logic-false-color);
+}
+.logic-truth-table-item-true {
+    background-color: var(--logic-true-color);
+}
+
+.logic-truth-table-item-false.logic-truth-table-item-result {
+    background-color: var(--logic-false-hover-color);
+}
+.logic-truth-table-item-true.logic-truth-table-item-result {
+    background-color: var(--logic-true-hover-color);
 }
