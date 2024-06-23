@@ -291,8 +291,10 @@ export function CalculateTruthTable(input) {
       variables[variables.length - 1 - j][1] = isBitTrue(i, j);
     }
     let replacedInput = replaceVariables(input, variables);
+    let result = calculateFast(replacedInput, logicArray);
     // console.log(replacedInput, calculateFast(replacedInput, logicArray));
-    tableValues.push(calculateFast(replacedInput, logicArray));
+    if(result == null) return null;
+    tableValues.push(result);
   }
   return tableValues;
 }

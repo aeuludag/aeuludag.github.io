@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import CloseImage from "../../../assets/close.svg"
+import BackspaceImage from "../../../assets/backspace.svg"
 import * as Logic from "./Logic"
 import "./LogicCalculator.css";
-import { useState } from "react";
 
 function LogicCalculator() {
     const [output, setOutput] = useState(null)
@@ -50,9 +51,15 @@ function LogicCalculator() {
     }
 
     function sendLogic() {
+        if(!isSendActive) return;
         if (calculateTableMode) {
+            let result = Logic.CalculateTruthTable(input);
+            if (result == null) {
+                setHasErrorOccured(true)
+                return;
+            }
             setShowTable(true);
-            setTruthTableValues(Logic.CalculateTruthTable(input));
+            setTruthTableValues(result);
             return;
         }
 
@@ -99,9 +106,15 @@ function LogicCalculator() {
         console.log(tempInput)
     }
 
+    document.onkeyup = function (e) {
+        if (e.key === "Enter") {
+            sendLogic();
+        }
+    };
+
     return (
         <div className={`logic-container logic-${hasErrorOccured ? "error" : (output == null ? "default" : (output ? "true" : "false"))}`}>
-            <div className="project-statusbar">
+            <div className="statusbar">
                 <div className="statusbar-details">
                     <img className="statusbar-image" src="/projectIcons/logic.png" />
                     <h1 className="statusbar-title">Logic Calculator</h1>
@@ -109,7 +122,7 @@ function LogicCalculator() {
                 <Link to="../" className="statusbar-close"><img src={CloseImage} /></Link>
             </div>
             <div className="project-content">
-                <p className={`logic-output logic-output-calculate-mode-${calculateTableMode ? "table" : "value"}`}>
+                <p className={`logic-output logic-${calculateTableMode && !hasErrorOccured ? "hide" : "show"}-output`}>
                     {(hasErrorOccured ? ("Check the input please.") :
                         (output == null ? "Press calculate (= button)" :
                             (output ? "☑ True, On, 1" : "☐ False, Off, 0")))}
@@ -117,7 +130,7 @@ function LogicCalculator() {
                 <div className="logic-input-area">
                     <input type="text" className="logic-input" ref={(element) => { inputElement = element }} value={input} onChange={onInputChange} onInput={onLogicInput} />
                     <div className="logic-input-buttons">
-                        <button className="logic-delete-button" onClick={deleteFromInput}>{"<"}</button>
+                        <button className="logic-delete-button" onClick={deleteFromInput}><img src={BackspaceImage} /></button>
                         <button type="submit" className="logic-send-button" disabled={!isSendActive} onClick={sendLogic}>{"="}</button>
                     </div>
                 </div>

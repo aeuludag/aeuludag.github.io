@@ -1,8 +1,8 @@
-# React + Vite
+# aeuludag.github.io
+My website made with React and Vite. It's my first project with React, so expect a lot of beginner mistakes if you happend to read the source :D
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Currently there are a few projects listed here:
+- [Logic Calculator](https://aeuludag.github.io/#/logic)
+- [Collatz Conjecture](https://aeuludag.itch.io/collatz)
+- [Epik Kapsül](https://aeuludag.itch.io/epik-kapsul)
+- MangalAI (soon? perhaps?)

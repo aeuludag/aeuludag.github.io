@@ -3,7 +3,7 @@ import "./MagicButton.css"
 
 function MagicButton(props) {
     return (<>
-        <button className={"magic-button " + (props.className ? props.className : "")}>
+        <button className={"magic-button " + (props.className ? props.className : "")} data-delay={props.delay}>
             <div className="magic-button-bg">
                 <MagicText>
                     {props.children}

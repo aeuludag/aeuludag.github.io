@@ -32,12 +32,23 @@
     height: 2rem;
     margin-right: 1rem;
     border-radius: 100%;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+}
+
+.navbar-logo-and-title:hover > .navbar-logo {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 1);
+}
+.navbar-logo-and-title:hover > .navbar-title {
+    color: white;
+    text-shadow: 0 0 0.5rem black;
 }
 
 .navbar-title {
-    color: white;
-    text-shadow: 0 0 1rem black;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     font-size: 1rem;
+    transition: all 0.5s;
 }
 
 .navbar-item {
@@ -54,17 +65,17 @@
 
 .navbar-link {
     padding: 0.5rem;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1rem;
-    color: var(--purple);
+    color: black;
     text-decoration: none;
-    /* backdrop-filter: blur(0.5rem); */
-    box-shadow: 0 0 1rem 0 black;
+    backdrop-filter: blur(0.5rem);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
     font-size: 0.75rem;
     transition: all 0.5s;
 }
 
 .navbar-link:hover {
-    background-color: var(--purple);
-    color: var(--yellow);
+    background-color: white;
+    box-shadow: 0 0 1rem 0 black;
 }

@@ -1,5 +1,5 @@
 :root {
-    --logic-default-color: rgba(1, 33, 139, 0.5);
+    --logic-default-color: rgba(0, 12, 51, 1);
     --logic-error-color: rgba(23, 1, 32, 0.75);
     --logic-true-color: rgba(10, 61, 17, 0.9);
     --logic-false-color: rgba(61, 10, 35, 0.9);
@@ -40,49 +40,6 @@
     background-color: var(--logic-false-color);
 }
 
-.project-statusbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.075);
-    border-radius: 0.3rem;
-}
-
-.statusbar-title {
-    font-size: 1.5rem;
-}
-
-.statusbar-details {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.statusbar-image {
-    width: 2rem;
-    width: 2rem;
-}
-
-.statusbar-close {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 0.3rem;
-    transition: all 0.5s;
-}
-
-.statusbar-close:hover {
-    background-color: white;
-}
-
-.statusbar-close img {
-    width: 1rem;
-    height: 1rem;
-}
-
 .project-content {
     display: flex;
     flex-direction: column;
@@ -99,12 +56,18 @@
     transition: all 0.5s;
 }
 
-.logic-output-calculate-mode-value {
+.logic-show-output {
     height: 2rem;
 }
 
-.logic-output-calculate-mode-table {
+.logic-hide-output {
     height: 0;
+}
+
+.logic-delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logic-input-categories {
@@ -123,6 +86,7 @@
 
 .logic-input-area {
     display: flex;
+    min-height: 2rem;
     justify-content: stretch;
     flex-wrap: nowrap;
     gap: 0.5rem;
@@ -130,10 +94,17 @@
 
 .logic-input {
     flex-grow: 1;
-    min-height: 2rem;
+    padding: 0 4px 0 4px;
     font-size: 1rem;
     border-radius: 0.3rem;
     border: 0;
+}
+
+.logic-input-buttons {
+    display: flex;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    gap: 4px;
 }
 
 .logic-input-buttons > * {
@@ -153,13 +124,6 @@
 .logic-input-buttons > *:disabled {
     opacity: 0.5;
     cursor: default;
-}
-
-.logic-input-buttons {
-    display: flex;
-    border-radius: 0.3rem;
-    overflow: hidden;
-    gap: 4px;
 }
 
 .project-content > button {
