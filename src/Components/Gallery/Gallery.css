@@ -31,6 +31,10 @@
 .gallery {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .gallery-items {
@@ -56,7 +60,8 @@
     bottom: -100%;
     width: 100%;
     opacity: 0;
-    background-color: rgb(56, 6, 43, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--purple);
     transition: all 0.5s;
 }
 
@@ -89,6 +94,9 @@
 }
 
 .image-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     aspect-ratio: 1;
     left: 0;
     top: 0;

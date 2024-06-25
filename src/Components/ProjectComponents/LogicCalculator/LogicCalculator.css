@@ -1,10 +1,10 @@
 :root {
     --logic-default-color: rgba(0, 12, 51, 1);
     --logic-error-color: rgba(23, 1, 32, 0.75);
-    --logic-true-color: rgba(10, 61, 17, 0.9);
-    --logic-false-color: rgba(61, 10, 35, 0.9);
-    --logic-true-hover-color: hsla(128, 72%, 28%, 0.9);
-    --logic-false-hover-color: hsla(331, 72%, 28%, 0.9);
+    --logic-true-color: rgba(10, 61, 17, 1);
+    --logic-false-color: rgba(61, 10, 35, 1);
+    --logic-true-hover-color: hsla(128, 72%, 28%, 1);
+    --logic-false-hover-color: hsla(331, 72%, 28%, 1);
 }
 
 .logic-container {
@@ -69,6 +69,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.logic-delete-button > img {
+    width: 1rem;
+}
+
 
 .logic-input-categories {
     display: flex;

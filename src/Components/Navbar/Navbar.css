@@ -1,4 +1,4 @@
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 375px) {
     .navbar-title {
         display: none;
     }
@@ -36,10 +36,10 @@
     transition: all 0.5s;
 }
 
-.navbar-logo-and-title:hover > .navbar-logo {
+.navbar-logo-and-title:hover > .navbar-logo, .active > .navbar-logo-and-title > .navbar-logo {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 1);
 }
-.navbar-logo-and-title:hover > .navbar-title {
+.navbar-logo-and-title:hover > .navbar-title, .active > .navbar-logo-and-title > .navbar-title {
     color: white;
     text-shadow: 0 0 0.5rem black;
 }
@@ -67,7 +67,7 @@
     padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1rem;
-    color: black;
+    color: var(--purple);
     text-decoration: none;
     backdrop-filter: blur(0.5rem);
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
@@ -75,7 +75,7 @@
     transition: all 0.5s;
 }
 
-.navbar-link:hover {
+.navbar-link:hover, .navbar-link.active {
     background-color: white;
     box-shadow: 0 0 1rem 0 black;
 }
