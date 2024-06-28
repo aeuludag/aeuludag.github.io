@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { createHtmlPlugin } from "vite-plugin-html";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import react from "@vitejs/plugin-react";
 
@@ -7,7 +6,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [
     react(),
-    createHtmlPlugin(),
+    // createHtmlPlugin(), <-- EVIL PLUGIN, DO NOT USE IT (it broke opening links in new tabs in dev mode.)
     viteStaticCopy({
       targets: [
         {

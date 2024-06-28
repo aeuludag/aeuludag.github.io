@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Blob from "../../assets/blob.svg"
 import Projects from '../Projects/Projects'
 import Homepage from '../Homepage/Homepage'
@@ -12,9 +12,6 @@ function App() {
     <>
       <div className="background-content">
         <img className="background-blob" src={Blob}></img>
-        {/* <div className="background-sparkles">
-          <Sparkles sparkleCount={3} sparkleClass="background-sparkle" />
-        </div>  */}
       </div>
       <div className="app-wrapper">
         <Navbar />
@@ -23,6 +20,7 @@ function App() {
             <Route path="" element={<Homepage />} />
             <Route path="/projects/*" element={<Projects />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </div>

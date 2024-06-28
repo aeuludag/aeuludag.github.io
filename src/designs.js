@@ -1,8 +1,18 @@
 const designs = [
   {
+    id: "fwn",
+    title: "Kutup Maymunları - Favori En Kötü Kabus",
+    description: "AMA BEN SEN HER AĞLADIĞINDA TAMAMEN PARÇALANIRIM",
+  },
+  {
+    id: "lemoon",
+    title: "Lemoon Crescent",
+    description: "\"Pull me in close on a crisp eve, baby, kiss me underneath the moon's sideboob\"",
+  },
+  {
     id: "vampires",
     title: "Hungry Vampires",
-    description: "To my ears, their ugly voices are just melodie.",
+    description: "Let them eat each other, leave the vampires hungry; to my ears, their ugly voices are just melodie.",
   },
   {
     id: "drumkeys",
@@ -10,24 +20,14 @@ const designs = [
     description: "Brian did the pretty visitors a favour with this one.",
   },
   {
-    id: "lemoon",
-    title: "Lemoon Crescent",
-    description: "Reflect and shine your light to the clueless lemon.",
-  },
-  {
-    id: "fwn",
-    title: "Kutup Maymunları - Favori En Kötü Kabus",
-    description: "AMA BEN SEN HER AĞLADIĞINDA TAMAMEN PARÇALANIRIM",
-  },
-  {
     id: "lemonbook",
     title: "Lemon on a Book",
-    description: "And this book reveals your face...",
+    description: "\"And now you're hiding in my soup, and this book reveals your face...\"",
   },
   {
     id: "mirrorball",
     title: "Mirrorball",
-    description: "There'd better be a mirrorball...",
+    description: "Oh, there'd better be a mirrorball for me.",
   },
   {
     id: "pawnher",
