@@ -39,7 +39,7 @@
 }
 
 .project-unavailable {
-    pointer-events: none;
+    opacity: 0.9;
 }
 
 .project-link-container.project-available:hover {

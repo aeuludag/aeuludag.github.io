@@ -23,7 +23,7 @@
     transition: all 0.5s;
 }
 
-.homepage-magic-buttons-wrapper:hover {
+.homepage-magic-buttons-wrapper:hover, .homepage-magic-buttons-wrapper:focus-within {
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 1);
 }
 
@@ -38,6 +38,16 @@
 .homepage-magic-button {
     width: 8rem;
     height: 5rem;
+}
+
+.homepage-magic-button:hover, .homepage-magic-button:focus {
+    opacity: 1 !important;
+}
+
+/* my most beautiful line of css (I want to vomit) */
+.homepage-magic-buttons:has(.homepage-magic-button:hover) .homepage-magic-button:not(:hover), .homepage-magic-buttons:focus-within a:not(:focus) .homepage-magic-button {
+    opacity: 0.5;
+    /* filter: blur(0.05rem); */
 }
 
 .designs-button {
@@ -55,7 +65,7 @@
     transition: all 0.5s;
 }
 
-.homepage-links:hover {
+.homepage-links:hover, .homepage-links:focus {
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 1);
 }
 
@@ -69,7 +79,7 @@
     transition: all 0.5s;
 }
 
-.homepage-links > *:hover {
+.homepage-links > *:hover, .homepage-links > *:focus {
     background-color: white;
 }
 

@@ -4,6 +4,7 @@ import CloseImage from "../../../assets/close.svg"
 import BackspaceImage from "../../../assets/backspace.svg"
 import * as Logic from "./Logic"
 import "./LogicCalculator.css";
+import { Helmet } from "react-helmet-async";
 
 function LogicCalculator() {
     const [output, setOutput] = useState(null)
@@ -114,6 +115,10 @@ function LogicCalculator() {
 
     return (
         <div className={`logic-container logic-${hasErrorOccured ? "error" : (output == null ? "default" : (output ? "true" : "false"))}`}>
+            <Helmet>
+                <title>Logic Calculator</title>
+                <link rel="canonical" href="https://aeuludag.github.io/#/projects/logic" />
+            </Helmet>
             <div className="statusbar">
                 <div className="statusbar-details">
                     <img className="statusbar-image" src="/projectIcons/logic.png" />

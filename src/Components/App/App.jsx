@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <div className="background-content">
-        <img className="background-blob" src={Blob}></img>
+        <img className="background-blob" alt="" src={Blob}></img>
       </div>
       <div className="app-wrapper">
         <Navbar />

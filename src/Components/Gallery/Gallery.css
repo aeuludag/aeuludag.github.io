@@ -113,22 +113,18 @@
     height: 100%;
 }
 
-.design-button:hover {
+.gallery-design:focus .design-button, .design-button:hover, .design-button:focus {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 0 1rem 0 black;
 }
 
-.gallery-design:hover>.design-buttons {
+.gallery-design:hover .design-buttons, .gallery-design:focus .design-buttons, .design-buttons:focus-within {
     top: 0.5rem;
     right: 0.5rem;
     opacity: 1;
 }
 
-/* .gallery-design:hover>.design-image {
-    filter: blur(0.5rem);
-} */
-
-.gallery-design:hover>.design-details {
+.gallery-design:focus .design-details, .design-buttons:focus-within~.design-details, .gallery-design:hover .design-details {
     bottom: 0;
     opacity: 1;
     backdrop-filter: blur(0.5rem);

@@ -13,6 +13,14 @@ export default defineConfig({
           src: "public/404.html",
           dest: "",
         },
+        {
+          src: "public/robots.txt",
+          dest: "",
+        },
+        {
+          src: "public/sitemap.xml",
+          dest: "",
+        },
       ],
     }),
   ],

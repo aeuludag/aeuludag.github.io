@@ -16,28 +16,3 @@
     transition: all 0.5s;
     animation: gradient-scroll 5s linear infinite;
 }
-
-.magic-button-bg {
-    position: absolute;
-    display: flex;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    /* top: -0.1rem;
-    left: -0.1rem;
-    padding: 0.1rem; */
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0;
-    border-radius: inherit;
-    background-color: var(--purple);
-    transition: all 0.5s; 
-}
-
-.magic-button:hover {
-    color: var(--yellow);
-}
-
-.magic-button:hover .magic-button-bg {
-    opacity: 1;
-}

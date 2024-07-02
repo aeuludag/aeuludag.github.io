@@ -71,7 +71,7 @@ html {
 .background-blob {
   position: absolute;
   width: 100%;
-  bottom: 70dvh;
+  bottom: 70vh;
   opacity: 0.1;
   animation: rotate 20s linear infinite;
 }

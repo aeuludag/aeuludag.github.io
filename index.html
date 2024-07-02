@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/sitefavico.png" />
+    <meta name="google-site-verification" content="OQzI7fnENqfYEztXgESf6en58kvtzeSZl62ijVzwjKw" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="My portfolio like website made using React, contains my projects and designs.">
     <meta name="author" content="Ahmet Emir">
@@ -13,7 +14,16 @@
     <title>Ahmet Emir's Site</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100vw; height: 100dvh;">
+          <h1 class="route-title">Hi, I'm Ahmet Emir, and <br> you need <span class="magic-text">JavaScript</span> <br> to run this site.</h1>
+          <p class="route-description">
+            This website uses React and Vite, which requires JavaScript. Please enable JavaScript in your browser settings.
+          </p>
+        </div>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
