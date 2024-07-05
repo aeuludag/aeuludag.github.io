@@ -1,4 +1,3 @@
-import MagicText from "../MagicText/MagicText";
 import "./MagicButton.css"
 
 function MagicButton(props) {

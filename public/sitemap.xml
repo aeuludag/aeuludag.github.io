@@ -11,6 +11,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://aeuludag.github.io/#/projects/logic</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://aeuludag.github.io/#/designs</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>

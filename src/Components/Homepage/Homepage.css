@@ -95,11 +95,17 @@
     0% {
         opacity: 0;
     }
+    5% {
+        opacity: 0;
+    }
     20% {
         opacity: 1;
     }
     80% {
         opacity: 1;
+    }
+    95% {
+        opacity: 0;
     }
     100% {
         opacity: 0;

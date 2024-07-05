@@ -121,10 +121,10 @@ function LogicCalculator() {
             </Helmet>
             <div className="statusbar">
                 <div className="statusbar-details">
-                    <img className="statusbar-image" src="/projectIcons/logic.png" />
+                    <img className="statusbar-image" src="/projectIcons/logic.png" alt="Logic Calculator icon" />
                     <h1 className="statusbar-title">Logic Calculator</h1>
                 </div>
-                <Link to="../" className="statusbar-close"><img src={CloseImage} /></Link>
+                <Link to="../" className="statusbar-close" aria-label="Close"><img src={CloseImage} alt="Close"/></Link>
             </div>
             <div className="project-content">
                 <p className={`logic-output logic-${calculateTableMode && !hasErrorOccured ? "hide" : "show"}-output`}>
@@ -133,9 +133,9 @@ function LogicCalculator() {
                             (output ? "☑ True, On, 1" : "☐ False, Off, 0")))}
                 </p>
                 <div className="logic-input-area">
-                    <input type="text" className="logic-input" ref={(element) => { inputElement = element }} value={input} onChange={onInputChange} onInput={onLogicInput} />
+                    <input type="text" className="logic-input" ref={(element) => { inputElement = element }} value={input} placeholder="Enter logic input..." onChange={onInputChange} onInput={onLogicInput} />
                     <div className="logic-input-buttons">
-                        <button className="logic-delete-button" onClick={deleteFromInput}><img src={BackspaceImage} /></button>
+                        <button className="logic-delete-button" onClick={deleteFromInput}><img src={BackspaceImage} alt="Backspace" /></button>
                         <button type="submit" className="logic-send-button" disabled={!isSendActive} onClick={sendLogic}>{"="}</button>
                     </div>
                 </div>
