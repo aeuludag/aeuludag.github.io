@@ -1,12 +1,14 @@
 :root {
-    --logic-dark-color: hsl(226, 99%, 10%);
     --logic-light-color: hsl(226, 99%, 90%);
-    --mangalai-dark-color: hsl(0, 29%, 5%);
+    --logic-dark-color: hsl(226, 99%, 10%);
     --mangalai-light-color: hsl(0, 50%, 96%);
+    --mangalai-dark-color: hsl(0, 29%, 5%);
     --collatz-light-color: hsl(218, 49%, 85%);
     --collatz-dark-color: hsl(221, 90%, 27%);
     --epik-kapsul-light-color: hsl(66, 42%, 74%);
     --epik-kapsul-dark-color: hsl(144, 42%, 14%);
+    --orbit-light-color: hsl(192, 100%, 85%);
+    --orbit-dark-color: hsl(232, 94%, 13%);
 }
 
 .projects {
@@ -45,7 +47,6 @@
 .project-link-container.project-available:hover {
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 1);
 }
-
 
 .project-headers {
     display: flex;
@@ -88,46 +89,18 @@
     color: white;
 }
 
-.statusbar {
+.project-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.075);
-    border-radius: 0.3rem;
-}
-
-.statusbar-title {
-    font-size: 1.5rem;
-}
-
-.statusbar-details {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.statusbar-image {
-    width: 2rem;
-    width: 2rem;
-    border-radius: 0.3rem;
-}
-
-.statusbar-close {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 0.3rem;
-    transition: all 0.5s;
-}
-
-.statusbar-close:hover {
-    background-color: white;
-}
-
-.statusbar-close img {
-    width: 1rem;
-    height: 1rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 480px;
+    margin: 1rem;
+    margin-top: 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all 1s;
+    flex-grow: 1;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
 }

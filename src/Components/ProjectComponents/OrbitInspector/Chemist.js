@@ -47,6 +47,10 @@ const predefinedElectronArrangements = {
     ]
 }
 
+const nobleGasIndexes = [
+    2, 10, 18, 36, 54, 86, 118
+]
+
 function calculateAtomArrangement(atomNumber) {
     if(predefinedElectronArrangements[atomNumber]) {
         return predefinedElectronArrangements[atomNumber];
@@ -71,9 +75,12 @@ function calculateAtomArrangement(atomNumber) {
 }
 
 function calculateIonArrangement(atomNumber, charge) {
-    if(charge <= 0) return calculateAtomArrangement(atomNumber - charge);
-    if(atomNumber <= 18) return calculateAtomArrangement(atomNumber - charge);
-    if(getMaximumCationCharge(atomNumber) < charge) throw new Error("Not enough electrons to ionize.");
+    if (charge < getMaximumAnionCharge(atomNumber)) throw new Error("Anion charge is too big.");
+    if (charge <= 0) return calculateAtomArrangement(atomNumber - charge);
+    if (charge >= atomNumber) throw new Error("Cation charge is too big.");
+    if (atomNumber <= 18) return calculateAtomArrangement(atomNumber - charge);
+    if (getMaximumCationCharge(atomNumber) < charge)
+      throw new Error("Not enough electrons to ionize.");
 
     let initialArrangement = calculateAtomArrangement(atomNumber);
 
@@ -86,7 +93,7 @@ function calculateIonArrangement(atomNumber, charge) {
     }
 
     // seenOrbits = 0th element = index of last s, 1st element = index of last p, 2nd element = index of last d
-    let seenOrbits = [-1, -1, -1];
+    let seenOrbits = [-1, -1, -1, -1];
     for(let i = biggestSOrbitIndex; i < initialArrangement.length; i++) {
         const { orbit, layer, electron } = initialArrangement[i];
         seenOrbits[orbit] = i;
@@ -95,6 +102,8 @@ function calculateIonArrangement(atomNumber, charge) {
     const sIndex = seenOrbits[0];
     const pIndex = seenOrbits[1];
     const dIndex = seenOrbits[2];
+    console.log(seenOrbits)
+    console.log(atomNumber, charge)
 
     // p -> s -> d
 
@@ -116,10 +125,10 @@ function calculateIonArrangement(atomNumber, charge) {
         const { orbit, layer, electron } = initialArrangement[sIndex];
         if (electron > charge) {
             initialArrangement[sIndex] = { orbit: orbit, layer: layer, electron: electron - charge };
-            initialArrangement.splice(pIndex, 1);
+            if(pIndex >= 0) initialArrangement.splice(pIndex, 1);
             return initialArrangement;
         } else if (electron === charge) {
-            initialArrangement.splice(pIndex, 1);
+            if(pIndex >= 0) initialArrangement.splice(pIndex, 1);
             initialArrangement.splice(sIndex, 1);
             return initialArrangement;
         }
@@ -131,12 +140,12 @@ function calculateIonArrangement(atomNumber, charge) {
     const { orbit, layer, electron } = initialArrangement[dIndex];
     if (electron > charge) {
         initialArrangement[dIndex] = { orbit: orbit, layer: layer, electron: electron - charge };
-        initialArrangement.splice(pIndex, 1);
+        if(pIndex >= 0) initialArrangement.splice(pIndex, 1);
         initialArrangement.splice(sIndex, 1);
         return initialArrangement;
     } else if (electron === charge) {
-        initialArrangement.splice(dIndex, 1);
-        initialArrangement.splice(pIndex, 1);
+        if(dIndex >= 0) initialArrangement.splice(dIndex, 1);
+        if(pIndex >= 0) initialArrangement.splice(pIndex, 1);
         initialArrangement.splice(sIndex, 1);
         return initialArrangement;
     }
@@ -177,11 +186,17 @@ function getLayersFromArrangement(electronArrangement) {
     return layers;
 }
 
-function electronArrangementToString(electronArrangement) {
+function arrangementToString(electronArrangement) {
     let arrangementStrings = [];
     for(let i = 0; i < electronArrangement.length; i++) {
         arrangementStrings.push(`${electronArrangement[i].layer}${orbitString[electronArrangement[i].orbit]}${electronArrangement[i].electron}`);
     }
+    return arrangementStrings.join(" ");
+}
+
+function arrangementToSemanticString(electronArrangement) {
+    let arrangementStrings = [];
+    // TODO: [He] 1 type of stuff 
     return arrangementStrings.join(" ");
 }
 
@@ -191,6 +206,7 @@ function getMaximumCationCharge(atomNumber) {
 
     for(let i = initialArrangement.length - 1; i >= 0; i--) {
         const { orbit, layer, electron } = initialArrangement[i];
+        if(initialArrangement[i].orbit === 3) continue;
         cation += electron;
         if(initialArrangement[i].orbit === 0) {
             break;
@@ -200,4 +216,8 @@ function getMaximumCationCharge(atomNumber) {
     return cation;
 }
 
-export { calculateAtomArrangement, electronArrangementToString, getLayersFromArrangement, calculateIonArrangement, getValenceElectronCount }
+function getMaximumAnionCharge(atomNumber) {
+    return -(118 - atomNumber);
+}
+
+export { calculateAtomArrangement, arrangementToString, getLayersFromArrangement, calculateIonArrangement, getValenceElectronCount, getMaximumAnionCharge, getMaximumCationCharge }

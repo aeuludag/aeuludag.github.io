@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import CloseImage from "../../../assets/close.svg"
-import BackspaceImage from "../../../assets/backspace.svg"
-import * as Logic from "./Logic"
-import "./LogicCalculator.css";
 import { Helmet } from "react-helmet-async";
+import * as Logic from "./Logic"
+import Statusbar from "../Statusbar/Statusbar";
+import BackspaceImage from "../../../assets/backspace.svg"
+import "./LogicCalculator.css";
 
 function LogicCalculator() {
     const [output, setOutput] = useState(null)
@@ -17,6 +16,7 @@ function LogicCalculator() {
     const [truthTableValues, setTruthTableValues] = useState([])
 
     let inputElement;
+    Logic.setPrefixUnary(usePrefix);
 
     function appendToInput(e) {
         let char = e.target.getAttribute("data-value");
@@ -91,8 +91,6 @@ function LogicCalculator() {
         toDefault();
     }
 
-    Logic.setPrefixUnary(usePrefix);
-
     function onLogicInput() {
         return;
         let tempInput = inputElement.value;
@@ -114,23 +112,18 @@ function LogicCalculator() {
     };
 
     return (
-        <div className={`logic-container logic-${hasErrorOccured ? "error" : (output == null ? "default" : (output ? "true" : "false"))}`}>
+        <div className={`project-container logic-container logic-${hasErrorOccured ? "error" : (output == null ? "default" : (output ? "true" : "false"))}`}>
             <Helmet>
                 <title>Logic Calculator</title>
                 <link rel="canonical" href="https://aeuludag.github.io/#/projects/logic" />
             </Helmet>
-            <div className="statusbar">
-                <div className="statusbar-details">
-                    <img className="statusbar-image" src="/projectIcons/logic.png" alt="Logic Calculator icon" />
-                    <h1 className="statusbar-title">Logic Calculator</h1>
-                </div>
-                <Link to="../" className="statusbar-close" aria-label="Close"><img src={CloseImage} alt="Close"/></Link>
-            </div>
+
+            <Statusbar projectId={"logic"}/>
+            
             <div className="project-content">
-                <p className={`logic-output logic-${calculateTableMode && !hasErrorOccured ? "hide" : "show"}-output`}>
+                <p className={`logic-output logic-${((output == null || calculateTableMode) && !hasErrorOccured) ? "hide" : "show"}-output`}>
                     {(hasErrorOccured ? ("Check the input please.") :
-                        (output == null ? "Press calculate (= button)" :
-                            (output ? "☑ True, On, 1" : "☐ False, Off, 0")))}
+                        (output ? "☑ True, On, 1" : (output == null ? "" : "☐ False, Off, 0")))}
                 </p>
                 <div className="logic-input-area">
                     <input type="text" className="logic-input" ref={(element) => { inputElement = element }} value={input} placeholder="Enter logic input..." onChange={onInputChange} onInput={onLogicInput} />

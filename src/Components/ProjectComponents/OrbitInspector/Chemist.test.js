@@ -4,11 +4,11 @@ let HArr, HeArr, LiArr, CrArr, CuArr, ZnArr, CeArr, OgArr;
 
 // quick functions to shorten tests
 function qAtomString(atomNumber) {
-    return Chemist.electronArrangementToString(Chemist.calculateAtomArrangement(atomNumber));
+    return Chemist.arrangementToString(Chemist.calculateAtomArrangement(atomNumber));
 }
 
 function qIonString(atomNumber, charge) {
-    return Chemist.electronArrangementToString(Chemist.calculateIonArrangement(atomNumber, charge));
+    return Chemist.arrangementToString(Chemist.calculateIonArrangement(atomNumber, charge));
 }
 
 beforeEach(() => {
@@ -66,4 +66,7 @@ test('Arrange electrons for ions', () => {
     expect(qIonString(54, +4)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p2");
     expect(qIonString(54, +7)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d10");
     expect(qIonString(54, +9)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 4d9");
+    expect(qIonString(59, +0)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f3");
+    expect(Chemist.getMaximumCationCharge(59)).toEqual(2);
+    expect(qIonString(59, +2)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 4f3");
 });

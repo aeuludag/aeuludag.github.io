@@ -3,6 +3,7 @@ import LogicCalculator from "../ProjectComponents/LogicCalculator/LogicCalculato
 import projects from "../../projects"
 import "./Projects.css"
 import { Helmet } from "react-helmet-async";
+import OrbitInspector from "../ProjectComponents/OrbitInspector/OrbitInspector";
 
 function Projects() {
     return <div className="projects">
@@ -13,6 +14,7 @@ function Projects() {
         <Routes>
             <Route path="" element={<ProjectLinks/>}/>
             <Route path="logic" element={<LogicCalculator />} />
+            <Route path="orbit" element={<OrbitInspector />}  />
         </Routes>
     </div>
 }
