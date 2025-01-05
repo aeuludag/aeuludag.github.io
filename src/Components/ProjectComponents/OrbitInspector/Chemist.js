@@ -51,8 +51,8 @@ const nobleGasIndexes = [
     2, 10, 18, 36, 54, 86, 118
 ]
 
-function calculateAtomArrangement(atomNumber) {
-    if(predefinedElectronArrangements[atomNumber]) {
+function calculateAtomArrangement(atomNumber, avoidPredefined = false) {
+    if(predefinedElectronArrangements[atomNumber] && !avoidPredefined) {
         return predefinedElectronArrangements[atomNumber];
     }
 
@@ -76,7 +76,7 @@ function calculateAtomArrangement(atomNumber) {
 
 function calculateIonArrangement(atomNumber, charge) {
     if (charge < getMaximumAnionCharge(atomNumber)) throw new Error("Anion charge is too big.");
-    if (charge <= 0) return calculateAtomArrangement(atomNumber - charge);
+    if (charge <= 0) return calculateAtomArrangement(atomNumber - charge, true);
     if (charge >= atomNumber) throw new Error("Cation charge is too big.");
     if (atomNumber <= 18) return calculateAtomArrangement(atomNumber - charge);
     if (getMaximumCationCharge(atomNumber) < charge)
@@ -102,8 +102,6 @@ function calculateIonArrangement(atomNumber, charge) {
     const sIndex = seenOrbits[0];
     const pIndex = seenOrbits[1];
     const dIndex = seenOrbits[2];
-    console.log(seenOrbits)
-    console.log(atomNumber, charge)
 
     // p -> s -> d
 
@@ -186,6 +184,14 @@ function getLayersFromArrangement(electronArrangement) {
     return layers;
 }
 
+function getTotalElectronCount(electronArrangement) {
+    let totalElectrons = 0;
+    for(let i = 0; i < electronArrangement.length; i++) {
+        totalElectrons += electronArrangement[i].electron;
+    }
+    return totalElectrons;
+}
+
 function arrangementToString(electronArrangement) {
     let arrangementStrings = [];
     for(let i = 0; i < electronArrangement.length; i++) {
@@ -194,13 +200,16 @@ function arrangementToString(electronArrangement) {
     return arrangementStrings.join(" ");
 }
 
-function arrangementToSemanticString(electronArrangement) {
+function arrangementForSuperStringHTML(electronArrangement) {
     let arrangementStrings = [];
-    // TODO: [He] 1 type of stuff 
-    return arrangementStrings.join(" ");
+    for(let i = 0; i < electronArrangement.length; i++) {
+        arrangementStrings.push([`${electronArrangement[i].layer}${orbitString[electronArrangement[i].orbit]}`, `${electronArrangement[i].electron}`]);
+    }
+    return arrangementStrings;
 }
 
 function getMaximumCationCharge(atomNumber) {
+    if(atomNumber <= 2) return atomNumber - 1;
     let initialArrangement = calculateAtomArrangement(atomNumber);
     let cation = 0;
 
@@ -220,4 +229,10 @@ function getMaximumAnionCharge(atomNumber) {
     return -(118 - atomNumber);
 }
 
-export { calculateAtomArrangement, arrangementToString, getLayersFromArrangement, calculateIonArrangement, getValenceElectronCount, getMaximumAnionCharge, getMaximumCationCharge }
+function getBlockName(atomNumber) {
+    let arrangement = calculateAtomArrangement(atomNumber);
+    return orbitString[arrangement[arrangement.length - 1].orbit];
+}
+
+export { calculateAtomArrangement, arrangementToString, getLayersFromArrangement, calculateIonArrangement, getValenceElectronCount, getMaximumAnionCharge, 
+    getMaximumCationCharge, getTotalElectronCount, arrangementForSuperStringHTML, getBlockName };

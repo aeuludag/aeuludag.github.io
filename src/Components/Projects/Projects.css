@@ -7,8 +7,8 @@
     --collatz-dark-color: hsl(221, 90%, 27%);
     --epik-kapsul-light-color: hsl(66, 42%, 74%);
     --epik-kapsul-dark-color: hsl(144, 42%, 14%);
-    --orbit-light-color: hsl(192, 100%, 85%);
-    --orbit-dark-color: hsl(232, 94%, 13%);
+    --orbit-light-color: hsl(256, 51%, 93%);
+    --orbit-dark-color: hsl(268, 90%, 8%);
 }
 
 .projects {

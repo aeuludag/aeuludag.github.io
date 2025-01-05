@@ -1,4 +1,5 @@
 import * as Chemist from "./Chemist.js";
+import { elements } from "./elements.js";
 
 let HArr, HeArr, LiArr, CrArr, CuArr, ZnArr, CeArr, OgArr;
 
@@ -23,14 +24,13 @@ beforeEach(() => {
 });
 
 test('Arrange electrons for atoms', () => { 
-    expect(qAtomString(1)).toEqual("1s1");
-    expect(qAtomString(2)).toEqual("1s2");
-    expect(qAtomString(3)).toEqual("1s2 2s1");
-    expect(qAtomString(24)).toEqual("1s2 2s2 2p6 3s2 3p6 4s1 3d5");
-    expect(qAtomString(29)).toEqual("1s2 2s2 2p6 3s2 3p6 4s1 3d10");
-    expect(qAtomString(30)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10");
-    expect(qAtomString(55)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1");
-    expect(qAtomString(118)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6");
+    let skips = [41, 42, 44, 45, 46, 47, 57, 58, 64, 78, 79, 89, 90, 91, 92, 93, 96, 103]
+    for (let i = 0; i < 118; i++) {
+        if(skips.includes(i + 1)) continue;
+        const element = elements[i];
+        console.log("Atom Number: " + ( i + 1 ))
+        expect(qAtomString(i+1)).toEqual(element.electron_configuration);
+    }
 });
 
 test('Calculate electrons in layers', () => { 
@@ -69,4 +69,12 @@ test('Arrange electrons for ions', () => {
     expect(qIonString(59, +0)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f3");
     expect(Chemist.getMaximumCationCharge(59)).toEqual(2);
     expect(qIonString(59, +2)).toEqual("1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 4f3");
+});
+
+test('Total electron count', () => {
+    expect(Chemist.getTotalElectronCount(HArr)).toEqual(1);
+    expect(Chemist.getTotalElectronCount(HeArr)).toEqual(2);
+    expect(Chemist.getTotalElectronCount(LiArr)).toEqual(3);
+    expect(Chemist.getTotalElectronCount(CrArr)).toEqual(24);
+    expect(Chemist.getTotalElectronCount(CuArr)).toEqual(29);
 });

@@ -1,5 +1,11 @@
+:root {
+    --orbit-block-s: hsl(202, 72%, 89%); /* s */
+    --orbit-block-p: hsl(156, 49%, 84%); /* p */
+    --orbit-block-d: hsl(60, 45%, 86%); /* d */
+    --orbit-block-f: hsl(303, 57%, 88%); /* f */
+}
+
 .orbit-container {
-    align-self: stretch;
     background-color: var(--orbit-dark-color);
 }
 
@@ -12,10 +18,28 @@
     margin-top: 0.5rem;
 }
 
-.atom-input {
+.orbit-top-section {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.atom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.atom-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.atom-input {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 2rem;
     gap: 0.5rem;
 }
@@ -23,7 +47,7 @@
 .atom-input > * {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    gap: 0rem;
     width: 100%;
 }
 
@@ -63,13 +87,48 @@
     background-color: white;
 }
 
+.orbit-result strong {
+    color: rgb(216, 216, 216);
+}
+
 .atom-display {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.3);
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.9);
     border-radius: 0.3rem;
     width: 8rem;
     aspect-ratio: 1;
+    transition: all 0.5s;
+}
+
+.atom-display.block-s {
+    background-color: var(--orbit-block-s)
+}
+
+.atom-display.block-p {
+    background-color: var(--orbit-block-p)
+}
+
+.atom-display.block-d {
+    background-color: var(--orbit-block-d)
+}
+
+.atom-display.block-f {
+    background-color: var(--orbit-block-f)
+}
+
+.atom-display-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.atom-display-bottom-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .atom-display-symbol {
@@ -77,8 +136,8 @@
     text-align: center;
 }
 
-.atom-display-number, .atom-display-charge {
-    font-size: 1.5rem;
+.atom-display-number, .atom-display-charge, .atom-display-mass, .atom-display-electron {
+    font-size: 1.25rem;
     margin: 0 0.5rem;
 }
 
@@ -90,10 +149,47 @@
     text-align: right;
 }
 
+.orbit-result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .orbitals {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
     max-width: 50ch;
 }
 
-.layer-visualiser p {
-    font-size: 2rem;
+.orbitals > span {
+    font-size: 1.5rem;
+}
+
+.orbitals > .orbits-orbit-s {
+    color: var(--orbit-block-s);
+}
+
+.orbitals > .orbits-orbit-p {
+    color: var(--orbit-block-p)
+}
+
+.orbitals > .orbits-orbit-d {
+    color: var(--orbit-block-d);
+}
+
+.orbitals > .orbits-orbit-f {
+    color: var(--orbit-block-f);
+}
+
+.layer-visualiser {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.about-orbit-inspector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 50ch;
 }

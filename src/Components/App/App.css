@@ -19,6 +19,7 @@ html {
   background: radial-gradient(circle at top,
   rgba(56,6,43,1) 11%, rgba(108,15,84,1) 31%, rgba(120,13,92,1) 48%, rgba(107,10,82,1) 71%, rgba(56,6,43,1) 90%
   );
+  background-color: var(--purple);
   background-position: center center;
   width: 100%;
   height: max-content;

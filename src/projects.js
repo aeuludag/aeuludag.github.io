@@ -1,5 +1,15 @@
 const projects = [
   {
+    id: "orbit",
+    projectName: "Orbit Inspector",
+    route: "orbit",
+    info: "2025 - English",
+    sourceCode: "https://github.com/aeuludag/aeuludag.github.io/tree/main/src/Components/ProjectComponents/OrbitInspector",
+    available: true,
+    description:
+      "A tool to model and visualize electron arrangement of atoms and ions. Made with React and JavaScript. Available on Web.",
+  },
+  {
     id: "logic",
     projectName: "Logic Calculator",
     route: "logic",
@@ -17,16 +27,6 @@ const projects = [
     available: true,
     description:
     "Hayatınızda hiç tatmadığınız benzersiz bir oyun deneyimi (Flappy Bird klonu). Unity ve C# ile yapıldı. Android'de oynanılabilir.",
-  },
-  {
-    id: "orbit",
-    projectName: "Orbit Inspector",
-    route: "orbit",
-    info: "2024 - English",
-    sourceCode: "https://github.com/aeuludag/aeuludag.github.io/tree/main/src/Components/ProjectComponents/OrbitInspector",
-    available: true,
-    description:
-      "A tool to model and visualize electron arrangement of atoms and ions. Made with React and JavaScript. Available on Web.",
   },
   {
     id: "collatz",

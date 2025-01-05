@@ -111,6 +111,10 @@ function LogicCalculator() {
         }
     };
 
+    function preventDefault(e) {
+        e.preventDefault();
+    }
+
     return (
         <div className={`project-container logic-container logic-${hasErrorOccured ? "error" : (output == null ? "default" : (output ? "true" : "false"))}`}>
             <Helmet>
@@ -128,31 +132,31 @@ function LogicCalculator() {
                 <div className="logic-input-area">
                     <input type="text" className="logic-input" ref={(element) => { inputElement = element }} value={input} placeholder="Enter logic input..." onChange={onInputChange} onInput={onLogicInput} />
                     <div className="logic-input-buttons">
-                        <button className="logic-delete-button" onClick={deleteFromInput}><img src={BackspaceImage} alt="Backspace" /></button>
+                        <button className="logic-delete-button" onMouseDown={preventDefault}  onClick={deleteFromInput}><img src={BackspaceImage} alt="Backspace" /></button>
                         <button type="submit" className="logic-send-button" disabled={!isSendActive} onClick={sendLogic}>{"="}</button>
                     </div>
                 </div>
                 <div className="logic-input-categories">
                     <div className="logic-input-numbers">
-                        <button className="logic-input-button" data-value={"1"} onClick={appendToInput}>1</button>
-                        <button className="logic-input-button" data-value={"0"} onClick={appendToInput}>0</button>
+                        <button className="logic-input-button" data-value={"1"} onMouseDown={preventDefault} onClick={appendToInput}>1</button>
+                        <button className="logic-input-button" data-value={"0"} onMouseDown={preventDefault} onClick={appendToInput}>0</button>
                     </div>
                     <div className="logic-input-paranthesis">
-                        <button className="logic-input-button" data-value={"("} onClick={appendToInput}>{"("}</button>
-                        <button className="logic-input-button" data-value={")"} onClick={appendToInput}>{")"}</button>
+                        <button className="logic-input-button" data-value={"("} onMouseDown={preventDefault} onClick={appendToInput}>{"("}</button>
+                        <button className="logic-input-button" data-value={")"} onMouseDown={preventDefault} onClick={appendToInput}>{")"}</button>
                     </div>
                     <div className="logic-input-variables">
-                        <button className="logic-input-button" data-value={"p"} onClick={appendToInput}>p</button>
-                        <button className="logic-input-button" data-value={"q"} onClick={appendToInput}>q</button>
-                        <button className="logic-input-button" data-value={"r"} onClick={appendToInput}>r</button>
+                        <button className="logic-input-button" data-value={"p"} onMouseDown={preventDefault} onClick={appendToInput}>p</button>
+                        <button className="logic-input-button" data-value={"q"} onMouseDown={preventDefault} onClick={appendToInput}>q</button>
+                        <button className="logic-input-button" data-value={"r"} onMouseDown={preventDefault} onClick={appendToInput}>r</button>
                     </div>
                     <div className="logic-input-operators">
-                        <button className="logic-input-button" onClick={appendToInput} data-value={usePrefix ? Logic.logicSymbols.notPrefix : Logic.logicSymbols.notPostfix}>{usePrefix ? Logic.logicSymbols.notPrefix : Logic.logicSymbols.notPostfix}</button>
-                        <button className="logic-input-button" onClick={appendToInput} data-value={Logic.logicSymbols.and}>{Logic.logicSymbols.and}</button>
-                        <button className="logic-input-button" onClick={appendToInput} data-value={Logic.logicSymbols.or}>{Logic.logicSymbols.or}</button>
-                        <button className="logic-input-button" onClick={appendToInput} data-value={Logic.logicSymbols.xor}>{Logic.logicSymbols.xor}</button>
-                        <button className="logic-input-button" onClick={appendToInput} data-value={Logic.logicSymbols.xnor}>{Logic.logicSymbols.xnor}</button>
-                        <button className="logic-input-button" onClick={appendToInput} data-value={Logic.logicSymbols.ifthen}>{Logic.logicSymbols.ifthen}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={usePrefix ? Logic.logicSymbols.notPrefix : Logic.logicSymbols.notPostfix}>{usePrefix ? Logic.logicSymbols.notPrefix : Logic.logicSymbols.notPostfix}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={Logic.logicSymbols.and}>{Logic.logicSymbols.and}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={Logic.logicSymbols.or}>{Logic.logicSymbols.or}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={Logic.logicSymbols.xor}>{Logic.logicSymbols.xor}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={Logic.logicSymbols.xnor}>{Logic.logicSymbols.xnor}</button>
+                        <button className="logic-input-button" onMouseDown={preventDefault} onClick={appendToInput} data-value={Logic.logicSymbols.ifthen}>{Logic.logicSymbols.ifthen}</button>
                     </div>
                     <div className="logic-options">
                         <button className="logic-input-button" onClick={checkboxButtonLogic} data-value={0} data-method={0} >{calculateTableMode ? "Truth Table" : "Truth Value"}</button>
@@ -259,6 +263,8 @@ function Variable({ name, setVariable, variableMap }) {
 // Thanks, GPT-4o :3
 
 function addCharacterAtIndex(input, character, event) {
+    
+    // console.log(document.activeElement);
     // Prevent the default action of the button click
     event.preventDefault();
 
@@ -287,7 +293,7 @@ function addCharacterAtIndex(input, character, event) {
         // Set the new value back to the input
         input.value = newValue;
 
-        input.focus();
+        // input.focus();
         input.setSelectionRange(index + 1, index + 1);
 
         return newValue;
@@ -298,7 +304,7 @@ function addCharacterAtIndex(input, character, event) {
         // Set the new value back to the input
         input.value = newValue;
 
-        input.focus();
+        // input.focus();
         input.setSelectionRange(start + 1, start + 1);
 
         return newValue;
