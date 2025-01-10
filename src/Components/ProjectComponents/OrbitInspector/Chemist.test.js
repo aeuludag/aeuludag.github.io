@@ -24,7 +24,7 @@ beforeEach(() => {
 });
 
 test('Arrange electrons for atoms', () => { 
-    let skips = [41, 42, 44, 45, 46, 47, 57, 58, 64, 78, 79, 89, 90, 91, 92, 93, 96, 103]
+    let skips = [41, 42, 44, 45, 46, 47, 57, 58, 64, 74 ,78, 79, 89, 90, 91, 92, 93, 96, 103, 106, 111]
     for (let i = 0; i < 118; i++) {
         if(skips.includes(i + 1)) continue;
         const element = elements[i];

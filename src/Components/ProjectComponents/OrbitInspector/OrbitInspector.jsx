@@ -17,8 +17,8 @@ function OrbitInspector() {
     }
     function sendOrbit(_atomNumber = atomNumber, _charge = charge) {
         // console.log(_atomNumber, _charge);
-        if (_atomNumber === null) return;
-        if (_charge === null) return;
+        if (_atomNumber === null) _atomNumber = 1;
+        if (_charge === null) _charge = 0;
         let arrangement = Chemist.calculateIonArrangement(_atomNumber, _charge);
         let layers = Chemist.getLayersFromArrangement(arrangement);
         setArrangement(arrangement);
@@ -42,6 +42,11 @@ function OrbitInspector() {
         return resultElements;
     }
 
+    document.onkeyup = function (e) {
+        if (e.key === "Enter") {
+            sendOrbit();
+        }
+    };
     return (
         <div className="project-container orbit-container">
             <Helmet>
@@ -66,25 +71,33 @@ function OrbitInspector() {
                     </div>
                     <AtomInput atomNumber={atomNumber} charge={charge} setter={setAtomNumberAndCharge} />
                 </div>
-                <button className="send-orbit-button" onClick={orbitButtonClicked}>Calculate Orbit</button>
+                <button className="send-orbit-button" onClick={orbitButtonClicked}>Calculate Configuration</button>
                 <div className="orbit-result">
-                    <div><strong>Orbits: </strong><div className="orbitals">{getSuperscriptedOrbits(arrangement)}</div></div>
-                    <div><strong>Layers: </strong> <LayerVisualiser layers={layers} /></div>
+                    <div><strong>Electron Configuration: </strong><div className="orbitals">{getSuperscriptedOrbits(arrangement)}</div></div>
+                    <div><strong>Shells: </strong> <LayerVisualiser layers={layers} /></div>
                 </div>
                 <hr></hr>
                 <div className="about-orbit-inspector">
                     <h2>⚛️ About Orbit Inspector</h2>
-                    <p>Hi! This is a project I made to test my knowledge on chemistry. This app is <em>supposed</em> to calculate a particles orbit based on its atom number and ion charge.</p>
+                    <p>Hi!</p>
+                    <p>This is a project I made to test my knowledge on chemistry. This app is <em>supposed</em> to calculate a particles electron configuration based on its atom number and ion charge.</p>
                     <p>While working on this, I have realized how much exceptions chemistry and the real world have over our prettily defined rules.
                         The app is based on the things I've learnt at 11th grade. That's why I was fumbled to see most of my tests failing after correctly implementing
-                        all the rules. Currently there are eighteen elements that I listed as "exceptions" and skipped during testing. May that be an excersise to the reader.
+                        all the rules. Currently there are a lot of elements that I listed as "exceptions" and skipped during testing. May that be an excersise to the reader.
+                    </p>
+                    <p> 
+                        Thanks to all contributors of <a style={{ color: "white" }} href="https://github.com/Bowserinator/Periodic-Table-JSON">Periodic Table JSON</a>.
+                        Their database helped me with testing. Although I could directly use their data for the most accurate results, that sounded no fun.
+                        I was more interested in turning what we learnt in school to a step-by-step algorithm than learning how to get data from a JSON.
+                        Since I don't plan to sell this little app to nuclear reactor companies, I am fine with little happy exceptions.
                     </p>
                     <p>
                         The UI is not pretty at all. This was way below my expectations and what could I do. Sadly I can't work more on it because of my limited time.
-                        Feel free to give suggestions though. Thanks to all contributors of <a style={{ color: "white" }} href="https://github.com/Bowserinator/Periodic-Table-JSON">Periodic Table JSON</a>.
-                        Their database helped me with testing.
+                        Feel free to give suggestions though. Sorry to all fellow chemistry majors out there that had to see my terminology mistakes. The code is filled
+                        with many.
                     </p>
-                    <p>-limon, 04.01.25</p>
+                    <p> Enjoy! </p>
+                    <p>-limon, 10.01.25</p>
                 </div>
             </div>
         </div>

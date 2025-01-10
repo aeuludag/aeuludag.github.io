@@ -340,7 +340,7 @@ function deleteCharacterAtIndex(input, event) {
         input.value = newValue;
 
         // Maintain the focus on the input field
-        input.focus();
+        // input.focus();
 
         // Set the cursor position after the deleted character
         input.setSelectionRange(start - 1, start - 1);
@@ -354,7 +354,7 @@ function deleteCharacterAtIndex(input, event) {
         input.value = newValue;
 
         // Maintain the focus on the input field
-        input.focus();
+        // input.focus();
 
         // Set the cursor position to the start of the selection
         input.setSelectionRange(start, start);

@@ -52,35 +52,54 @@ const nobleGasIndexes = [
 ]
 
 function calculateAtomArrangement(atomNumber, avoidPredefined = false) {
-    if(predefinedElectronArrangements[atomNumber] && !avoidPredefined) {
-        return predefinedElectronArrangements[atomNumber];
-    }
+    // if(predefinedElectronArrangements[atomNumber] && !avoidPredefined) {
+    //     return predefinedElectronArrangements[atomNumber];
+    // }
 
     let electronCount = atomNumber;
     let arrangement = [];
-
+    let seenOrbits = [-1, -1, -1, -1]; // last s, p, d, f
     for(let i = 0; i < OrbitLayerElectrons.length; i++) {
         const { orbit, layer, electron } = OrbitLayerElectrons[i];
         if(electronCount >= electron) {
             electronCount -= electron;
+            seenOrbits[orbit] = i;
             arrangement.push(OrbitLayerElectrons[i]);
             if(electronCount === 0) break;
         } else {
+            seenOrbits[orbit] = i;
             arrangement.push({ orbit: orbit, layer: layer, electron: electronCount });
             break;
         }
+    }
+
+    // if the configuration ends with ..s2 and ..d4 or d9, make it s1 d5 d10
+
+    if(avoidPredefined) return arrangement;
+
+    const lastSIndex = seenOrbits[0];
+    const lastDIndex = seenOrbits[2];
+
+    if (lastDIndex == -1) return arrangement;
+    if (arrangement[lastDIndex].electron != 4 && arrangement[lastDIndex].electron != 9) return arrangement;
+    if (lastDIndex > lastSIndex) {
+        const lastSTerm = arrangement[lastSIndex];
+        const lastDTerm = arrangement[lastDIndex];
+
+        arrangement[lastSIndex] = { orbit: lastSTerm.orbit, layer: lastSTerm.layer, electron: 1 };
+        arrangement[lastDIndex] = { orbit: lastDTerm.orbit, layer: lastDTerm.layer, electron: lastDTerm.electron + 1 };
     }
 
     return arrangement;
 }
 
 function calculateIonArrangement(atomNumber, charge) {
-    if (charge < getMaximumAnionCharge(atomNumber)) throw new Error("Anion charge is too big.");
-    if (charge <= 0) return calculateAtomArrangement(atomNumber - charge, true);
-    if (charge >= atomNumber) throw new Error("Cation charge is too big.");
-    if (atomNumber <= 18) return calculateAtomArrangement(atomNumber - charge);
-    if (getMaximumCationCharge(atomNumber) < charge)
-      throw new Error("Not enough electrons to ionize.");
+    if (charge < getMaximumAnionCharge(atomNumber)) {throw new Error("Anion charge is too big.");}
+    if (charge == 0) {return calculateAtomArrangement(atomNumber);}
+    if (charge < 0) {return calculateAtomArrangement(atomNumber - charge, true);}
+    if (charge >= atomNumber) {throw new Error("Cation charge is too big.");}
+    if (atomNumber <= 18) {return calculateAtomArrangement(atomNumber - charge);}
+    if (getMaximumCationCharge(atomNumber) < charge) {throw new Error("Not enough electrons to ionize.");}
 
     let initialArrangement = calculateAtomArrangement(atomNumber);
 
@@ -209,7 +228,9 @@ function arrangementForSuperStringHTML(electronArrangement) {
 }
 
 function getMaximumCationCharge(atomNumber) {
-    if(atomNumber <= 2) return atomNumber - 1;
+    if(nobleGasIndexes.includes(atomNumber)) return 0;
+    if(atomNumber <= 2) return atomNumber;
+
     let initialArrangement = calculateAtomArrangement(atomNumber);
     let cation = 0;
 
