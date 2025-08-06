@@ -1,5 +1,6 @@
 :root {
     --gallery-item-size: clamp(2.5rem, 40vw, 12.5rem);
+    --gallery-transition-duration: 0.35s;
 }
 
 @media screen and (max-width: 425px) {
@@ -24,6 +25,9 @@
     .image-link {
         width: 3rem !important;
         height: 3rem !important;
+    }
+    .design-platform {
+        font-size: 1rem !important;
     }
     
 }
@@ -57,12 +61,12 @@
 
 .design-details {
     position: absolute;
-    bottom: -100%;
+    transform: translateY(0%);
     width: 100%;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.5);
-    color: var(--purple);
-    transition: all 0.5s;
+    color: black;
+    transition: all var(--gallery-transition-duration);
 }
 
 .design-title {
@@ -70,6 +74,7 @@
     margin: 0.5rem;
     margin-bottom: 0.25rem;
 }
+
 .design-description {
     font-size: 0.75rem;
     margin: 0.5rem;
@@ -78,19 +83,26 @@
 
 .design-image {
     width: 100%;
-    transition: all 0.5s;
+    transition: all var(--gallery-transition-duration);
 }
 
 .design-buttons {
     position: absolute;
     display: flex;
     flex-direction: row-reverse;
-    top: -100%;
+    top: -2rem;
     right: 0.5rem;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
     opacity: 0;
-    transition: all 0.5s;
+    transition: all var(--gallery-transition-duration);
+}
+
+.design-platform {
+    text-shadow: 0 0 0.2rem black;
+    opacity: 0.7;
+    font-size: 0.75rem;
 }
 
 .design-button {
@@ -105,7 +117,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10%;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
+    transition: all var(--gallery-transition-duration);
 }
 
 .design-button img {
@@ -125,7 +137,7 @@
 }
 
 .gallery-design:focus .design-details, .design-buttons:focus-within~.design-details, .gallery-design:hover .design-details {
-    bottom: 0;
+    transform: translateY(-100%);
     opacity: 1;
     backdrop-filter: blur(0.5rem);
     box-shadow: 0 0 1rem 0 black;

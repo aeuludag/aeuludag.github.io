@@ -10,7 +10,7 @@ function Statusbar({ projectId }) {
     return (
         <div className="statusbar">
             <div className="statusbar-details">
-                <img className="statusbar-image" src={`/projectIcons/${projectId}.png`} alt={`${project.projectName} icon}`} />
+                <img className="statusbar-image" src={`/ProjectIcons/${projectId}.png`} alt={`${project.projectName} icon}`} />
                 <h1 className="statusbar-title">{project.projectName}</h1>
             </div>
             <div className="statusbar-links">

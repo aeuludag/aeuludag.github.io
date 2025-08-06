@@ -1,0 +1,118 @@
+@media screen and (max-width: 550px) {
+    .todays-song {
+        flex-direction: column !important;
+    }
+
+    .todays-song-links {
+        width: 100%;
+        flex-direction: row !important;
+        margin-top: calc(-1 * var(--scale) * var(--pixel));
+    }
+
+    .todays-song-notes {
+        right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    
+    .todays-song-track {
+        font-size: 1.25rem !important;
+    }
+    
+}
+
+.todays-song {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: white;
+    border-color: black;
+    border-width: calc(var(--scale) * var(--pixel));
+    border-style: solid;
+    color: black;
+    overflow: hidden;
+}
+
+.todays-song-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    flex-grow: 1;
+}
+
+.todays-song-notes {
+    position: absolute;
+    top: 0;
+    right: calc(-1 * var(--scale) * var(--pixel));
+    height: calc(var(--scale) * 1rem);
+    width: calc(var(--scale) * 2rem);
+    image-rendering: pixelated;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.todays-song-icon {
+    height: calc(var(--scale) * 1rem);
+    width: calc(var(--scale) * 1rem);
+    background-color: white;
+    image-rendering: pixelated;
+    z-index: 1;
+}
+
+.todays-song-info {
+    margin-top: calc(var(--scale) * var(--pixel));
+}
+
+.todays-song-track {
+    position: relative;
+    font-size: 1.5rem;
+    max-width: 20ch;
+    font-weight: bold;
+    line-height: 1.5rem;
+    z-index: 1;
+}
+
+.todays-song-artist {
+    position: relative;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.todays-song-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    margin-left: auto;
+    z-index: 1;
+}
+
+.todays-song-links>* {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding-right: calc(var(--scale) * var(--pixel));
+}
+
+.todays-song-spotify:hover {
+    background-color: #1DB954;
+    color: white;
+}
+
+.todays-song-yt:hover {
+    background-color: #FF0000;
+    color: white;
+}
+
+.todays-song-links a {
+    color: black;
+    text-decoration: none;
+}
+
+.todays-song-links img {
+    width: calc(var(--scale) * 0.5rem);
+    height: calc(var(--scale) * 0.5rem);
+    image-rendering: pixelated;
+}

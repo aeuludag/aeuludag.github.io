@@ -20,7 +20,9 @@ function Gallery() {
                 <link rel="canonical" href="https://aeuludag.github.io/#/gallery" />
             </Helmet>
             <h1 className="route-title">Design Gallery</h1>
-            <p className="route-description">Here are some of my designs, mostly made in Inkscape tool. Hover or tap on the images to see more detail.</p>
+            <p className="route-description">
+                Arts of who he squeezes his own mind as if a lemon.
+            </p>
             <div className="gallery-items">
                 {designElements}
             </div>
@@ -31,12 +33,14 @@ function GalleryDesign({design}) {
     const id = design.id;
     const title = design.title;
     const description = design.description;
+    const platform = design.platform;
 
     return (
         <div className="gallery-design" tabIndex={"0"}>
             <img className="design-image" src={`/designs/lowres/${id}.png`} alt={`Gallery design named ${title}`} loading="lazy" />
             <div className="design-buttons">
                 <a className="design-button image-link" target="_blank" href={`/designs/${id}.png`} aria-label="Open design in high quality"><img src={openInNewImage} alt="Open in new tab" /></a>
+                <p className="design-platform">{platform}</p>
             </div>
             <div className="design-details">
                 <h1 className="design-title">{title}</h1>

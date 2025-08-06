@@ -47,3 +47,11 @@
     width: 1rem;
     height: 1rem;
 }
+
+.statusbar-close {
+    background-color: hsl(338, 57%, 88%);
+}
+
+.statusbar-source {
+    background-color: hsl(200, 100%, 90%);
+}

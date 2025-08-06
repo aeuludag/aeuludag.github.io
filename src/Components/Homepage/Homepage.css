@@ -1,3 +1,7 @@
+:root {
+  --scale: 5;
+}
+
 .homepage {
     display: flex;
     flex-direction: column;
@@ -5,109 +9,173 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    gap: 3rem;
+}
+
+.homepage-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
 .homepage-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
+    margin: 0 1rem;
     color: var(--yellow-accent);
-    margin: 0 2rem 2rem 2rem;
     text-shadow: 0rem 0rem 1rem black;
+    animation: up-and-down 1s step-start infinite;
 }
 
-.homepage-magic-buttons-wrapper {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
-}
-
-.homepage-magic-buttons-wrapper:hover, .homepage-magic-buttons-wrapper:focus-within {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 1);
-}
-
-.homepage-magic-buttons {
+.homepage-buttons {
+    width: 16ch;
+    font-size: 1.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: calc(var(--scale) * var(--pixel));
 }
 
-.homepage-magic-button {
-    width: 8rem;
-    height: 5rem;
-}
-
-.homepage-magic-button:hover, .homepage-magic-button:focus {
-    opacity: 1 !important;
-}
-
-/* my most beautiful line of css (I want to vomit) */
-.homepage-magic-buttons:has(.homepage-magic-button:hover) .homepage-magic-button:not(:hover), .homepage-magic-buttons:focus-within a:not(:focus) .homepage-magic-button {
-    opacity: 0.5;
-    /* filter: blur(0.05rem); */
-}
-
-.designs-button {
-    animation-delay: -2.5s;
-}
-
-.homepage-links {
+.homepage-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
-    border-radius: 0.6rem;
-    overflow: hidden;
-    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
-}
-
-.homepage-links:hover, .homepage-links:focus {
-    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 1);
-}
-
-.homepage-links > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 3rem;
-    min-height: 2.5rem;
-    transition: all 0.5s;
-}
-
-.homepage-links > *:hover, .homepage-links > *:focus {
+    width: 100%;
+    height: calc(var(--scale) * 1rem);
     background-color: white;
+    border-color: black;
+    border-width: calc(var(--scale) * var(--pixel));
+    border-style: solid;
 }
 
-.homepage-links > * > img {
-    width: 1rem;
+.homepage-button img {
+    height: inherit;
+    aspect-ratio: 1;
+    margin-right: auto;
+    image-rendering: pixelated;
 }
 
-.homepage-title > .magic-text {
-    animation: fade 5s ease-in-out infinite;
+.homepage-button p {
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+.homepage-button:hover,
+.homepage-button:focus {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    animation: none;
+}
+
+.homepage-button-projects {
+    color: rgb(1, 59, 4);
+    animation: dark-green 0.3s step-end infinite;
+}
+
+.homepage-button-designs {
+    color: rgb(0, 57, 92);
+    animation: dark-rainbow 5s linear infinite;
+}
+
+.homepage-button-about {
+    color: rgb(64, 64, 64);
+}
+
+.homepage-footer {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.homepage-song {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+}
+
+.homepage-footer img {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0 1ch;
+    pointer-events: none;
+    image-rendering: pixelated;
 }
 
 @keyframes fade {
     0% {
         opacity: 0;
     }
+
     5% {
         opacity: 0;
     }
+
     20% {
         opacity: 1;
     }
+
     80% {
         opacity: 1;
     }
+
     95% {
         opacity: 0;
     }
+
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes up-and-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.2rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dark-rainbow { /* copilot wrote this */
+    0% {
+        color: #7b1fa2; /* dark purple */
+    }
+    16% {
+        color: #08437d; /* dark blue */
+    }
+    33% {
+        color: #115014; /* dark green */
+    }
+    50% {
+        color: #956c04; /* dark yellow */
+    }
+    66% {
+        color: #914901; /* dark orange */
+    }
+    83% {
+        color: #c62828; /* dark red */
+    }
+    100% {
+        color: #7b1fa2; /* back to dark purple */
+    }
+}
+
+@keyframes dark-green {
+    0% {
+        color: rgb(1, 59, 4);
+    }
+    50% {
+        color: rgb(19, 96, 20);
+    }
+    100% {
+        color: rgb(1, 59, 4);
     }
 }

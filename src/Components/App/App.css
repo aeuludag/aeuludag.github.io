@@ -4,11 +4,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "ari-w9500";
+  src: url("../../assets/Fonts/ari-w9500.ttf");
+  font-display: swap;
+}
+
 :root {
+  --pixel: calc(1rem / 16);
   --yellow: #ffdd00;
   --yellow-accent: rgb(255, 251, 231);
-  --purple: rgb(56, 6, 43);
+  --purple: rgb(93, 18, 73);
   --yellow-gradient: linear-gradient(90deg, rgba(255, 221, 0, 1) 0%, rgb(255, 244, 172) 20%, rgba(203, 179, 28, 1) 50%, rgba(255, 244, 172) 80%, rgba(255, 221, 0, 1) 100%);
+}
+
+#root {
+  position: relative;
 }
 
 * {
@@ -16,16 +27,15 @@
 }
 
 html {
-  background: radial-gradient(circle at top,
-  rgba(56,6,43,1) 11%, rgba(108,15,84,1) 31%, rgba(120,13,92,1) 48%, rgba(107,10,82,1) 71%, rgba(56,6,43,1) 90%
-  );
+  /* background: radial-gradient(circle at top,
+  rgba(56,6,43,1) 11%, rgba(108,15,84,1) 31%, rgba(120,13,92,1) 48%, rgba(107,10,82,1) 71%, rgba(56,6,43,1) 90% ); */
   background-color: var(--purple);
-  background-position: center center;
+  /* background-position: center center; */
   width: 100%;
   height: max-content;
   min-height: 100%;
   /* animation: grow-and-shrink 10s ease-in-out infinite alternate; */
-  font-family: "ChakraPetch", sans-serif;
+  font-family: "ari-w9500", sans-serif;
   color: white;
   font-size: clamp(1rem, 2vw, 1.5rem);
 }
@@ -58,7 +68,7 @@ html {
 
 .route-description {
   text-align: center;
-  max-width: 30ch;
+  max-width: 50ch;
   margin: 1rem;
 }
 
@@ -66,7 +76,8 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -76,6 +87,22 @@ html {
   bottom: 70vh;
   opacity: 0.1;
   animation: rotate 20s linear infinite;
+}
+
+.background-tile {
+  position: absolute;
+  opacity: 0.1;
+  width: 100%;
+  height: 100%;
+  background-size: 10em;
+  background-repeat: repeat;
+  filter: blur(0.5rem);
+
+  background-image: url("../../assets/hex.svg");
+  animation: hex-slide 20s linear infinite;
+
+  /* background-image: url("../../assets/tile.svg");
+  animation: slide 20s linear infinite; */
 }
 
 ::-webkit-scrollbar {
@@ -96,6 +123,24 @@ html {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(52, 100%, 70%);
+}
+
+@keyframes hex-slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10em calc(sqrt(3)*10em);
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10em 10em;
+  }
 }
 
 @keyframes rotate {

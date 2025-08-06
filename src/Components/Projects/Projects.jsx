@@ -23,7 +23,7 @@ function ProjectLinks() {
 
     return <>
         <h1 className="route-title">Projects</h1>
-        <p className="route-description">Here are some of the projects I've made so far.</p>
+        <p className="route-description">Programming projects that I made and plan to make.</p>
         <div className="project-links">
                 {projects.map((project) => {
                     return <ProjectLink key={project.id} project={project} />
@@ -37,7 +37,7 @@ function ProjectLink({ project }) {
     return <>
         <Link className={`project-link-container project-${id} project-${available ? "available" : "unavailable"}`} to={available ? route : "#"} style={{ backgroundColor: `var(--${id}-dark-color)` }}>
             <div className="project-headers">
-                <img className="project-image" alt={"Project icon for " + projectName} src={`/projectIcons/${id}.png`}></img>
+                <img className="project-image" alt={"Project icon for " + projectName} src={`/ProjectIcons/${id}.png`}></img>
                 <div className="project-title-and-info" style={{color: `var(--${id}-light-color)`}}>
                     <h2 className="project-title">{projectName}</h2>
                     <p className="project-info">{info}</p>
