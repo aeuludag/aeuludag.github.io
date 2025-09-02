@@ -96,7 +96,7 @@ html {
   height: 100%;
   background-size: 10em;
   background-repeat: repeat;
-  filter: blur(0.5rem);
+  filter: blur(0.3rem);
 
   background-image: url("../../assets/hex.svg");
   animation: hex-slide 20s linear infinite;

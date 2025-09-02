@@ -12,21 +12,21 @@ function About() {
             <h1 className="route-title">About Me</h1>
                 <div className='about-upper'>
                     <img className='about-image' src="/limonene.gif" alt="About Me" />
-                    <p className='about-organic'>fig. 1: <i>Lemonene</i></p>
+                    <p className='about-organic'>fig. 1: <i>Limonene</i></p>
                 </div>
             <div className='about-text'>
                 <p>
-                    Hello! I'm Ahmet Emir, a soon-to-be Molecular Biology and Genetics student at Bilkent University. <br />
+                    Selam! I'm Ahmet Emir, a Molecular Biology and Genetics student at Bilkent University. <br />
                     I love science, programming, art and poetry.
                 </p>
-                <p>Song of the day:</p>
                 <TodaysSong />
                 <div className='about-links'>
                     <a href="https://github.com/aeuludag" target="_blank" rel="noopener noreferrer">GitHub</a> -
                     <a href="https://www.linkedin.com/in/ahmetemiruludag/" target="_blank" rel="noopener noreferrer">LinkedIn</a> -
+                    <a href="https://www.youtube.com/@lim10dev" target="_blank" rel="noopener noreferrer">YouTube</a> -
                     <a href="https://aeuludag.itch.io/" target="_blank" rel="noopener noreferrer">Itch</a>
                 </div>
-                <p className='about-sign'>-aeuludag, 06.08.25</p>
+                <p className='about-sign'>-aeuludag, 02.09.25</p>
             </div>
         </div>
     )

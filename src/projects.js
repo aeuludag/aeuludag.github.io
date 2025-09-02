@@ -44,7 +44,7 @@ const projects = [
     info: "Not Yet, Not Soon",
     available: false,
     description:
-      "An AI designed to play Turkish board game, Mangala. Made with Unity and C#. Available soon on Windows.",
+      "An AI designed to play Turkish board game, Mangala. Made with Unity and C#. No intentions of continuing as of now.",
   },
 ];
 
