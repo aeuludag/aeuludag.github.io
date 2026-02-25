@@ -18,6 +18,7 @@ function Homepage() {
                 <h1 className="homepage-title">
                     Ahmet Emir's Cell
                 </h1>
+                <p className="homepage-bio">-a biological computer that wants to study computational biology-</p>
             </div>
             <div className="homepage-buttons">
                 <Link to="/projects" aria-label="Projects" style={{ textDecoration: "none" }}>

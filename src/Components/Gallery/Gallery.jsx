@@ -21,7 +21,7 @@ function Gallery() {
             </Helmet>
             <h1 className="route-title">Design Gallery</h1>
             <p className="route-description">
-                Arts of who he squeezes his own mind as if a lemon.
+                Another way for a soul to be set free!
             </p>
             <div className="gallery-items">
                 {designElements}

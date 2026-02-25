@@ -1,8 +1,11 @@
 import { Helmet } from 'react-helmet';
 import './About.css';
 import TodaysSong from "../TodaysSong/TodaysSong.jsx";
+import getQuote from "../WeeksQuote/WeeksQuote";
+import JumpingText from '../JumpingText/JumpingText.jsx';
 
 function About() {
+    var quoteInfo = getQuote()
     return (
         <div className="about">
             <Helmet>
@@ -16,17 +19,23 @@ function About() {
                 </div>
             <div className='about-text'>
                 <p>
-                    Selam! I'm Ahmet Emir, a Molecular Biology and Genetics student at Bilkent University. <br />
+                    <span className='about-selam'>Selam!</span> I'm <JumpingText text="Ahmet Emir" className={"about-magic about-jumping-text"}/>, a Molecular Biology and Genetics student at Bilkent University. <br />
                     I love science, programming, art and poetry.
                 </p>
+                {/* <JumpingText className={"about-jumping-text"} text="Selam again!!"/> */}
                 <TodaysSong />
+                <div className='about-quote-container'>
+                    <img className={'about-quote-photo about-quote-photo-' + quoteInfo.photoId} src={`/quotePhotos/${quoteInfo.photoId}.png`}/>
+                    <p className='about-quote'>"{quoteInfo.quote}"</p>
+                    <p className='about-quote-me'>~weekly quote by {quoteInfo.by}~</p>
+                </div>
                 <div className='about-links'>
                     <a href="https://github.com/aeuludag" target="_blank" rel="noopener noreferrer">GitHub</a> -
                     <a href="https://www.linkedin.com/in/ahmetemiruludag/" target="_blank" rel="noopener noreferrer">LinkedIn</a> -
                     <a href="https://www.youtube.com/@lim10dev" target="_blank" rel="noopener noreferrer">YouTube</a> -
                     <a href="https://aeuludag.itch.io/" target="_blank" rel="noopener noreferrer">Itch</a>
                 </div>
-                <p className='about-sign'>-aeuludag, 02.09.25</p>
+                <p className='about-sign'>-aeuludag, 26.02.26</p>
             </div>
         </div>
     )

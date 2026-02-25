@@ -1,5 +1,14 @@
 const projects = [
   {
+    id: "cellular-swarm",
+    projectName: "Cellular Swarm",
+    route: "https://aeuludag.itch.io/cellular-swarm",
+    info: "2026 - English",
+    available: false,
+    description:
+      "A life simulator where you design your own cells with your custom genes. Made with C# and Raylib. Soon on Mac, Windows.",
+  },
+  {
     id: "orbit",
     projectName: "Orbit Inspector",
     route: "orbit",
@@ -37,15 +46,15 @@ const projects = [
     description:
       "A tool to calculate Collatz Conjecture sequence. Made with .NET Winforms and C#. Available on Windows",
   },
-  {
-    id: "mangalai",
-    projectName: "MangalAI",
-    route: "mangalai",
-    info: "Not Yet, Not Soon",
-    available: false,
-    description:
-      "An AI designed to play Turkish board game, Mangala. Made with Unity and C#. No intentions of continuing as of now.",
-  },
+  // {
+  //   id: "mangalai",
+  //   projectName: "MangalAI",
+  //   route: "mangalai",
+  //   info: "Not Yet, Not Soon",
+  //   available: false,
+  //   description:
+  //     "An AI designed to play Turkish board game, Mangala. Made with Unity and C#. No intentions of continuing as of now.",
+  // },
 ];
 
 export default projects;

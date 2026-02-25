@@ -23,7 +23,7 @@ function ProjectLinks() {
 
     return <>
         <h1 className="route-title">Projects</h1>
-        <p className="route-description">Programming projects that I made and plan to make.</p>
+        <p className="route-description">Programming projects that I made.</p>
         <div className="project-links">
                 {projects.map((project) => {
                     return <ProjectLink key={project.id} project={project} />

@@ -5,10 +5,12 @@
     --mangalai-dark-color: hsl(0, 29%, 5%);
     --collatz-light-color: hsl(218, 49%, 85%);
     --collatz-dark-color: hsl(221, 90%, 27%);
-    --epik-kapsul-light-color: hsl(66, 42%, 74%);
-    --epik-kapsul-dark-color: hsl(144, 42%, 14%);
+    --epik-kapsul-light-color: hsl(50, 85%, 87%);
+    --epik-kapsul-dark-color: rgb(40, 29, 3);
     --orbit-light-color: hsl(256, 51%, 93%);
     --orbit-dark-color: hsl(268, 90%, 8%);
+    --cellular-swarm-light-color: rgb(234, 239, 230);
+    --cellular-swarm-dark-color: rgb(5, 28, 5);
 }
 
 .projects {
@@ -36,9 +38,10 @@
     text-decoration: none !important;
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+    border: 2px white solid;
     border-radius: 0.3rem;
     padding: 1rem;
-    transition: box-shadow 0.5s;
+    transition: box-shadow 0.4s;
 }
 
 .project-unavailable {
@@ -46,7 +49,7 @@
 }
 
 .project-link-container.project-available:hover {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.4);
 }
 
 .project-headers {
@@ -103,5 +106,5 @@
     border-radius: 1rem;
     transition: all 1s;
     flex-grow: 1;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0.5rem 0 rgba(255, 255, 255, 0.5);
 }
