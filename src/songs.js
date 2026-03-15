@@ -55,7 +55,7 @@ const songs = [
     },
     {
         "track": "Calm Like You",
-        "artist": "The Last Shadow Puppets, Alex Turner, Miles Kane",
+        "artist": "The Last Shadow Puppets",
         "spotify": "https://open.spotify.com/track/0b70nZ5kdm09VlyfHLNjlL",
         "yt_music": "https://music.youtube.com/watch?v=j7qmADw2Q0w"
     },
@@ -246,25 +246,25 @@ const songs = [
         "yt_music": "https://music.youtube.com/watch?v=Sp4Lj0hG5DI"
     },
     {
-        "track": "I Belong to You (+Mon Coeur S'Ouvre a Ta Voix)",
+        "track": "I Belong to You",
         "artist": "Muse",
         "spotify": "https://open.spotify.com/track/114rzL6VEy9bb3amPcY3tw",
         "yt_music": "https://music.youtube.com/watch?v=8ttu6RxqbZg"
     },
     {
-        "track": "Exogenesis: Symphony Pt. 1 (Overture)",
+        "track": "Exogenesis 1 (Overture)",
         "artist": "Muse",
         "spotify": "https://open.spotify.com/track/6zkhhG8iQ8waiwGkQuhoE1",
         "yt_music": "https://music.youtube.com/watch?v=wDmOnqrjH7w"
     },
     {
-        "track": "Exogenesis: Symphony Pt. 2 (Cross-pollination)",
+        "track": "Exogenesis 2 (Cross-pollination)",
         "artist": "Muse",
         "spotify": "https://open.spotify.com/track/39kUTBz4uJoy5VtmIybz9D",
         "yt_music": "https://music.youtube.com/watch?v=VMM1X8aXlCs"
     },
     {
-        "track": "Exogenesis: Symphony Pt. 3 (Redemption)",
+        "track": "Exogenesis 3 (Redemption)",
         "artist": "Muse",
         "spotify": "https://open.spotify.com/track/76ZDwA8uTyMys4LIS3pBUX",
         "yt_music": "https://music.youtube.com/watch?v=wRCzchqOSxk"

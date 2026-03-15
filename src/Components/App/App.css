@@ -113,7 +113,7 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--purple);
+  background: var(--green);
 }
 
 /* Handle */
