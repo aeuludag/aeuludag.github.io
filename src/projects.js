@@ -4,9 +4,9 @@ const projects = [
     projectName: "Cellular Swarm",
     route: "https://aeuludag.itch.io/cellular-swarm",
     info: "2026 - English",
-    available: false,
+    available: true,
     description:
-      "A life simulator where you design your own cells with your custom genes. Made with C# and Raylib. Soon on Mac, Windows.",
+      "A life simulator where you design your own cells with your custom genes. Made with Raylib and C#. Available on Windows, macOS.",
   },
   {
     id: "orbit",
@@ -44,7 +44,7 @@ const projects = [
     info: "2022 - Türkçe, English",
     available: true,
     description:
-      "A tool to calculate Collatz Conjecture sequence. Made with .NET Winforms and C#. Available on Windows",
+      "A tool to calculate Collatz Conjecture sequence. Made with .NET Winforms and C#. Available on Windows.",
   },
   // {
   //   id: "mangalai",

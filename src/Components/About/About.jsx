@@ -22,7 +22,6 @@ function About() {
                     <span className='about-selam'>Selam!</span> I'm <JumpingText text="Ahmet Emir" className={"about-magic about-jumping-text"}/>, a Molecular Biology and Genetics student at Bilkent University. <br />
                     I love science, programming, art and poetry.
                 </p>
-                {/* <JumpingText className={"about-jumping-text"} text="Selam again!!"/> */}
                 <TodaysSong />
                 <div className='about-quote-container'>
                     <img className={'about-quote-photo about-quote-photo-' + quoteInfo.photoId} src={`/quotePhotos/${quoteInfo.photoId}.png`}/>
@@ -35,7 +34,7 @@ function About() {
                     <a href="https://www.youtube.com/@lim10dev" target="_blank" rel="noopener noreferrer">YouTube</a> -
                     <a href="https://aeuludag.itch.io/" target="_blank" rel="noopener noreferrer">Itch</a>
                 </div>
-                <p className='about-sign'>-aeuludag, 26.02.26</p>
+                <p className='about-sign'>-aeuludag, 23.08.26</p>
             </div>
         </div>
     )

@@ -9,8 +9,8 @@
     --epik-kapsul-dark-color: rgb(40, 29, 3);
     --orbit-light-color: hsl(256, 51%, 93%);
     --orbit-dark-color: hsl(268, 90%, 8%);
-    --cellular-swarm-light-color: rgb(234, 239, 230);
-    --cellular-swarm-dark-color: rgb(5, 28, 5);
+    --cellular-swarm-light-color: rgb(230, 230, 230);
+    --cellular-swarm-dark-color: rgb(20, 20, 20);
 }
 
 .projects {

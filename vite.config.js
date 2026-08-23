@@ -21,6 +21,10 @@ export default defineConfig({
           src: "public/sitemap.xml",
           dest: "",
         },
+        {
+          src: "public/cellular-swarm.version",
+          dest: "",
+        },
       ],
     }),
   ],

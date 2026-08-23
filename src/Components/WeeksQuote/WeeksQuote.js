@@ -2,7 +2,7 @@ import quotes from "../../quotes";
 
 function getQuote() {
     
-    const randIndex = [ 2, 10, 9, 15, 1, 8, 11, 17, 4, 16, 6, 13, 5, 14, 12, 3, 0, 7 ];
+    const randIndex = [ 12, 15, 14, 18, 17, 9, 4, 13, 7, 3, 10, 8, 19, 16, 0, 1, 11, 2, 5, 6 ];
     const today = new Date();
     // const today = new Date(2000, 0, 1 + testIndex);
     const start = new Date(2000, 0, 1);

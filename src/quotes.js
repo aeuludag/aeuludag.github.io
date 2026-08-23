@@ -89,5 +89,15 @@ const quotes = [
         "by": "Muse",
         "photoId": "fire"
     },
+    {
+        "quote": "Normale göre hayat biraz hızlı gidiyo",
+        "by": "Sueda",
+        "photoId": "green"
+    },
+    {
+        "quote": "Herhangi bir akşamdı, çıkasım vardı yokuşlardan",
+        "by": "Zoktay",
+        "photoId": "blue"
+    },
 ];
 export default quotes;
