@@ -6,12 +6,12 @@
 
 @keyframes text-motion {
     0% {
-        vertical-align: 0.15ch;
+        vertical-align: 0.3ch;
     }
     50% {
-        vertical-align: -0.15ch;
+        vertical-align: 0.0ch;
     }
     100% {
-        vertical-align: 0.15ch;
+        vertical-align: 0.3ch;
     }
 }
