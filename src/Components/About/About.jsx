@@ -19,7 +19,7 @@ function About() {
                 </div>
             <div className='about-text'>
                 <p>
-                    <span className='about-selam'>Selam!</span> I'm <JumpingText text="Ahmet Emir" className={"about-magic about-jumping-text"}/>, a Molecular Biology and Genetics student at Bilkent University. <br />
+                    <span className='about-selam'>Selam!</span> I'm <JumpingText text="Ahmet Emir" className={"about-magic about-jumping-text"}/>, a Molecular Biology and Genetics undergraduate at Bilkent University. <br />
                     I love science, programming, art and poetry.
                 </p>
                 <TodaysSong />
@@ -34,7 +34,7 @@ function About() {
                     <a href="https://www.youtube.com/@lim10dev" target="_blank" rel="noopener noreferrer">YouTube</a> -
                     <a href="https://aeuludag.itch.io/" target="_blank" rel="noopener noreferrer">Itch</a>
                 </div>
-                <p className='about-sign'>-aeuludag, 23.08.26</p>
+                <p className='about-sign'>-aeuludag, 25.08.26</p>
             </div>
         </div>
     )
