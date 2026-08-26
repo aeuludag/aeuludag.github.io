@@ -6,7 +6,7 @@ const projects = [
     info: "2026 - English",
     available: true,
     description:
-      "A life simulator where you design your own cells with your custom genes. Made with Raylib and C#. Available on Windows, macOS.",
+      "A life engine where you design your own cells with your custom genes. Made with Raylib and C#. Available on Windows, macOS, Linux.",
   },
   {
     id: "orbit",
