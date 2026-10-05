@@ -43,7 +43,7 @@ function ProjectLink({ project }) {
                     <p className="project-info">{info}</p>
                 </div>
             </div>
-            <p className={`project-description`}>{description}</p>
+            <p className={`project-description`} style={{color: `var(--${id}-light-color)`}}>{description}</p>
         </Link>
     </>
 }

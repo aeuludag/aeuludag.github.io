@@ -89,9 +89,9 @@
     text-decoration: underline;
 }
 
-.project-description {
+/* .project-description {
     color: white;
-}
+} */
 
 .project-container {
     display: flex;

@@ -12,10 +12,10 @@ function About() {
                 <title>About Me</title>
                 <link rel="canonical" href="https://aeuludag.github.io/#/about" />
             </Helmet>
-            <h1 className="route-title">About Me</h1>
+            <h1 className="route-title">About Not Me</h1>
                 <div className='about-upper'>
-                    <img className='about-image' src="/limonene.gif" alt="About Me" />
-                    <p className='about-organic'>fig. 1: <i>Limonene</i></p>
+                    <img className='about-image' src="/fox.png" alt="About Me" />
+                    <p className='about-organic'>fig. 2: <i>Birthday of a<br/>certain someone</i></p>
                 </div>
             <div className='about-text'>
                 <p>
